@@ -1,0 +1,72 @@
+{
+  "title": "Choose the visual world",
+  "question": "Three re-rolls in. These are the last remaining academic forms, plus Canvas / Moodle / Coursera played straight. If you still re-roll, use steer to name the quality that was missing — otherwise the next hand has nothing familiar left to deal.",
+  "options": [
+    {
+      "id": "swiss-posters",
+      "label": "Swiss Identity Poster",
+      "lineage": "Swiss academic identity posters (ETH-era information grids)",
+      "thesis": "The landing is one poster: the academy’s identity grid, the path as numbered fields, enroll as the only primary.",
+      "palette": ["#ffffff", "#111111", "#e30613", "#e8e8e8"],
+      "materials": ["coated poster stock", "grid tape", "grotesque caps"],
+      "viewport": "A full-bleed poster: SKILLSTREAM ACADEMY in grotesque, 1 Enroll 2 Learn 3 Certify as a numbered grid, Sign in as student in the red field, Check a reference as the registration number in the margin, Planned as an empty ruled cell.",
+      "risk": "A generic modernist poster if the grid is decoration instead of the path.",
+      "comp": ".impeccable/mocks/decision/swiss-posters.webp",
+      "wireframe": {
+        "cols": 12,
+        "rows": 10,
+        "regions": [
+          { "label": "academy / identity block", "x": 0, "y": 0, "w": 12, "h": 3, "accent": true },
+          { "label": "1 enroll | 2 learn | 3 certify", "x": 0, "y": 3, "w": 8, "h": 5 },
+          { "label": "empty / planned cell", "x": 8, "y": 3, "w": 4, "h": 3 },
+          { "label": "verify reg. no.", "x": 8, "y": 6, "w": 4, "h": 2 },
+          { "label": "sign in red field", "x": 0, "y": 8, "w": 12, "h": 2 }
+        ]
+      }
+    },
+    {
+      "id": "due-date-card",
+      "label": "Circulation Card",
+      "lineage": "Library due-date cards in book pockets",
+      "thesis": "The course is checked out on a circulation card: stamps are progress, the card number is the certificate reference.",
+      "palette": ["#d4cfc4", "#0f2744", "#1f7a4c", "#9b1b30", "#eef1f4"],
+      "materials": ["manila stock", "date grid", "library stamp"],
+      "viewport": "A due-date card filling the viewport: borrower line as student, date grid as lessons, last stamp as certified, card number as verify; Sign in as checking the card out; Planned as unstamped empty rows.",
+      "risk": "Library nostalgia if the stamps are decoration instead of enroll → complete → issue.",
+      "comp": ".impeccable/mocks/decision/due-date-card.webp",
+      "wireframe": {
+        "cols": 12,
+        "rows": 10,
+        "regions": [
+          { "label": "card head / academy / no.", "x": 1, "y": 0, "w": 10, "h": 2, "accent": true },
+          { "label": "borrower / student line", "x": 1, "y": 2, "w": 10, "h": 1 },
+          { "label": "date grid = lessons", "x": 1, "y": 3, "w": 10, "h": 5 },
+          { "label": "check out / verify no.", "x": 1, "y": 8, "w": 10, "h": 2 }
+        ]
+      }
+    }
+  ],
+  "reroll": { "registers": ["safer", "bolder"] },
+  "canon": true,
+  "canonCard": {
+    "label": "The category standard",
+    "thesis": "Canvas, Moodle, Coursera: a type-first LMS hero, three steps, and Sign in — executed at their craft level.",
+    "palette": ["#f8fafc", "#0f172a", "#0f766e"],
+    "materials": ["card chrome", "Lucide wells"],
+    "viewport": "Type-first hero, path card, feature list, Sign in.",
+    "risk": "Indistinguishable from the current shell by design.",
+    "comp": ".impeccable/mocks/decision/canon.webp",
+    "wireframe": {
+      "cols": 12,
+      "rows": 10,
+      "regions": [
+        { "label": "nav", "x": 0, "y": 0, "w": 12, "h": 1 },
+        { "label": "hero + sign in", "x": 0, "y": 1, "w": 12, "h": 4, "accent": true },
+        { "label": "three steps", "x": 0, "y": 5, "w": 12, "h": 3 },
+        { "label": "features + footer", "x": 0, "y": 8, "w": 12, "h": 2 }
+      ]
+    }
+  },
+  "steer": true,
+  "buildPath": { "value": "code", "toggle": true }
+}

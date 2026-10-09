@@ -1,0 +1,2163 @@
+{
+  "users": [
+    {
+      "id": "user-student-1",
+      "email": "student@skillstream.academy",
+      "firstName": "Alex",
+      "lastName": "Rivera",
+      "role": "student",
+      "passwordHash": "$2b$10$QIX/lYOdYOHxGfRr.C3mOe4QBtaLkqLV4Be3sQsuwM3xFUeXDYYH6"
+    },
+    {
+      "id": "user-instructor-1",
+      "email": "instructor@skillstream.academy",
+      "firstName": "Jordan",
+      "lastName": "Chen",
+      "role": "instructor",
+      "passwordHash": "$2b$10$a5Pc2hUhcBFJFYzXtPDJsO2C2aJ/hF/3tAAIGfNiCZLrGYhND.Wn6"
+    },
+    {
+      "id": "user-admin-1",
+      "email": "admin@skillstream.academy",
+      "firstName": "Sam",
+      "lastName": "Okonkwo",
+      "role": "admin",
+      "passwordHash": "$2b$10$RbR55WmGi8P4FfVh4US02e8GslDM3VAB/cO9XkHkz7LrFQcGQZ9mi"
+    },
+    {
+      "id": "0e470805-8882-4dbe-bf11-a8a6b8d4cf73",
+      "email": "k@gmail.com",
+      "firstName": "Kyle",
+      "lastName": "Marave",
+      "role": "student",
+      "passwordHash": "$2b$10$zJ5hmPPDWNIf1mwHr16/o.6OONBoogRkRfvIgLctlR5OvQlpVNXIa"
+    },
+    {
+      "id": "2d148d77-8d7b-48d1-9ea6-259229fff327",
+      "email": "t@gmail.com",
+      "passwordHash": "$2b$10$ABKy/67n06TvBfH9xWEoSuouJNF1ZWubRDqtxJrIb56fGJar/Xqga",
+      "firstName": "Kyle",
+      "lastName": "Marave",
+      "role": "student"
+    },
+    {
+      "id": "c5878637-657c-4606-a411-215035bfe0c9",
+      "email": "d@gmail.com",
+      "passwordHash": "$2b$10$BQCjYJtmdxrImP5Ld7C1PuLRRXeE.xcKbYGt5q8s82RU84HZQVh0i",
+      "firstName": "Sean",
+      "lastName": "D",
+      "role": "student"
+    },
+    {
+      "id": "ae38cb46-3781-4fc1-ae29-969cacf0c281",
+      "email": "austriaseandaniel@gmail.com",
+      "passwordHash": "$2b$10$2bk4o9JgRMUy/poQuZ1aReyg/ohTL/3BKU6bSsgH5c0.bSWMsMfjC",
+      "firstName": "Sean",
+      "lastName": "Austria",
+      "role": "student"
+    }
+  ],
+  "sessions": [
+    {
+      "id": "38f9d1f2-1787-4afb-b5e7-4db093d566de",
+      "userId": "2d148d77-8d7b-48d1-9ea6-259229fff327",
+      "expiresAt": "2026-10-09T22:06:46.954Z",
+      "createdAt": "2026-10-02T22:06:46.955Z",
+      "revokedAt": "2026-10-02T22:15:19.232Z"
+    },
+    {
+      "id": "d3499cda-87d6-4492-88da-0dc4a05e215f",
+      "userId": "user-instructor-1",
+      "expiresAt": "2026-10-09T22:14:09.022Z",
+      "createdAt": "2026-10-02T22:14:09.029Z",
+      "revokedAt": null
+    },
+    {
+      "id": "479ea6ae-7580-4f82-90c3-408775ea13fd",
+      "userId": "user-admin-1",
+      "expiresAt": "2026-10-09T22:14:14.852Z",
+      "createdAt": "2026-10-02T22:14:14.879Z",
+      "revokedAt": null
+    },
+    {
+      "id": "6f9d86db-eedb-4167-a397-ab6847b8b41c",
+      "userId": "user-instructor-1",
+      "expiresAt": "2026-10-09T22:15:28.606Z",
+      "createdAt": "2026-10-02T22:15:28.608Z",
+      "revokedAt": "2026-10-03T06:43:20.056Z"
+    },
+    {
+      "id": "66f7b415-9716-41ce-bdb6-6fec2f8e841a",
+      "userId": "c5878637-657c-4606-a411-215035bfe0c9",
+      "expiresAt": "2026-10-10T06:43:53.675Z",
+      "createdAt": "2026-10-03T06:43:53.678Z",
+      "revokedAt": "2026-10-03T06:45:29.337Z"
+    },
+    {
+      "id": "8c83a7ae-2f87-409e-8599-dce5f8c83a60",
+      "userId": "user-instructor-1",
+      "expiresAt": "2026-10-10T06:45:41.121Z",
+      "createdAt": "2026-10-03T06:45:41.124Z",
+      "revokedAt": null
+    },
+    {
+      "id": "978a1a85-3bad-4f06-9f1c-492b147632a6",
+      "userId": "user-admin-1",
+      "expiresAt": "2026-10-10T06:48:18.918Z",
+      "createdAt": "2026-10-03T06:48:18.921Z",
+      "revokedAt": "2026-10-03T06:49:03.635Z"
+    },
+    {
+      "id": "450ac81a-8822-4c7b-89c2-b0b080717f6b",
+      "userId": "user-instructor-1",
+      "expiresAt": "2026-10-10T06:49:14.768Z",
+      "createdAt": "2026-10-03T06:49:14.771Z",
+      "revokedAt": null
+    },
+    {
+      "id": "bf6136a2-d795-44cf-9114-83b3f48c5f2b",
+      "userId": "user-admin-1",
+      "expiresAt": "2026-10-10T06:54:25.723Z",
+      "createdAt": "2026-10-03T06:54:25.726Z",
+      "revokedAt": "2026-10-03T06:54:48.220Z"
+    },
+    {
+      "id": "6cff972d-0f45-4447-bfe0-4a713d49bf6d",
+      "userId": "user-instructor-1",
+      "expiresAt": "2026-10-10T06:55:02.698Z",
+      "createdAt": "2026-10-03T06:55:02.701Z",
+      "revokedAt": "2026-10-03T06:55:25.221Z"
+    },
+    {
+      "id": "d42c6a6c-6170-4dec-86d7-459d9834e366",
+      "userId": "user-student-1",
+      "expiresAt": "2026-10-10T06:55:36.742Z",
+      "createdAt": "2026-10-03T06:55:36.745Z",
+      "revokedAt": "2026-10-03T06:57:27.203Z"
+    },
+    {
+      "id": "bd82a514-6d89-4e0e-9c7f-04f7a3010fe1",
+      "userId": "user-student-1",
+      "expiresAt": "2026-10-16T06:15:05.661Z",
+      "createdAt": "2026-10-09T06:15:05.667Z",
+      "revokedAt": "2026-10-09T06:15:05.672Z"
+    },
+    {
+      "id": "191df9e3-c72a-4df9-866d-0c8268328bdf",
+      "userId": "ae38cb46-3781-4fc1-ae29-969cacf0c281",
+      "expiresAt": "2026-10-16T06:15:13.834Z",
+      "createdAt": "2026-10-09T06:15:13.835Z",
+      "revokedAt": "2026-10-09T06:15:13.838Z"
+    },
+    {
+      "id": "683ea138-e745-4ed5-9ed5-aeb941aeb265",
+      "userId": "user-instructor-1",
+      "expiresAt": "2026-10-16T06:15:33.052Z",
+      "createdAt": "2026-10-09T06:15:33.054Z",
+      "revokedAt": "2026-10-09T06:15:33.058Z"
+    },
+    {
+      "id": "3ea85954-b42a-44d7-af3f-d97cbd74543d",
+      "userId": "user-student-1",
+      "expiresAt": "2026-10-16T06:24:22.569Z",
+      "createdAt": "2026-10-09T06:24:22.570Z",
+      "revokedAt": "2026-10-09T06:24:22.574Z"
+    },
+    {
+      "id": "1d8ffe18-055b-4d30-8370-7dc6270101a6",
+      "userId": "user-student-1",
+      "expiresAt": "2026-10-16T06:25:17.389Z",
+      "createdAt": "2026-10-09T06:25:17.391Z",
+      "revokedAt": "2026-10-09T06:25:17.396Z"
+    },
+    {
+      "id": "bf124ba9-8268-4b51-8017-f19b68a4e547",
+      "userId": "user-student-1",
+      "expiresAt": "2026-10-16T06:26:01.394Z",
+      "createdAt": "2026-10-09T06:26:01.396Z",
+      "revokedAt": null
+    },
+    {
+      "id": "27c619e2-90c9-431d-afe5-5fbd89f63777",
+      "userId": "user-student-1",
+      "expiresAt": "2026-10-16T06:26:18.746Z",
+      "createdAt": "2026-10-09T06:26:18.748Z",
+      "revokedAt": null
+    },
+    {
+      "id": "e5965c13-35a0-4306-a1db-655405e154fc",
+      "userId": "user-student-1",
+      "expiresAt": "2026-10-16T06:26:53.582Z",
+      "createdAt": "2026-10-09T06:26:53.584Z",
+      "revokedAt": null
+    }
+  ],
+  "courses": [
+    {
+      "id": "course-1",
+      "instructorId": "user-instructor-1",
+      "title": "Intro to Web Development",
+      "description": "Learn HTML, CSS, and JavaScript fundamentals through hands-on projects.",
+      "status": "published",
+      "createdAt": "2026-01-15T08:00:00.000Z",
+      "updatedAt": "2026-09-22T07:17:52.354Z",
+      "reviewStatus": "none",
+      "reviewFeedback": null,
+      "submittedAt": null
+    },
+    {
+      "id": "course-2",
+      "instructorId": "user-instructor-1",
+      "title": "Database Design Basics",
+      "description": "ERDs, normalization, and SQL for application developers.",
+      "status": "published",
+      "createdAt": "2026-02-01T08:00:00.000Z",
+      "updatedAt": "2026-09-22T08:20:00.000Z",
+      "reviewStatus": "none",
+      "reviewFeedback": null,
+      "submittedAt": null
+    },
+    {
+      "instructorId": "user-instructor-1",
+      "title": "Intro to Nigga",
+      "description": "asdasd",
+      "status": "archived",
+      "id": "2a227af0-8241-4bcb-be90-93367d9869e7",
+      "createdAt": "2026-09-22T09:45:22.639Z",
+      "updatedAt": "2026-10-03T06:50:54.588Z",
+      "reviewStatus": "none",
+      "reviewFeedback": null,
+      "submittedAt": null
+    },
+    {
+      "id": "f1054129-19b0-4367-b41d-826c6a4f9ebe",
+      "instructorId": "user-instructor-1",
+      "title": "Database Tables and Keys",
+      "description": "Learn what a table stores and how primary and foreign keys relate rows across tables.",
+      "status": "draft",
+      "createdAt": "2026-10-02T21:33:00.766Z",
+      "updatedAt": "2026-10-02T22:14:15.643Z",
+      "reviewStatus": "none",
+      "reviewFeedback": null,
+      "submittedAt": null
+    },
+    {
+      "id": "c7c1ac74-874c-4016-b374-017fd6841101",
+      "instructorId": "user-instructor-1",
+      "title": "Systems Integration & Architecture: Weeks 2–5 Cram Reviewer",
+      "description": "Exam-focused review of systems integration and architecture, project and software life cycles, requirements and modeling diagrams, and architectural patterns and styles.",
+      "status": "published",
+      "createdAt": "2026-10-02T21:34:59.267Z",
+      "updatedAt": "2026-10-02T21:35:37.079Z",
+      "reviewStatus": "none",
+      "reviewFeedback": null,
+      "submittedAt": null
+    },
+    {
+      "instructorId": "user-instructor-1",
+      "title": "asdads",
+      "description": "tesy",
+      "status": "archived",
+      "reviewStatus": "none",
+      "reviewFeedback": null,
+      "submittedAt": null,
+      "id": "0827b986-247f-4633-b142-fab4daadccf6",
+      "createdAt": "2026-10-02T22:15:37.848Z",
+      "updatedAt": "2026-10-02T22:15:57.257Z"
+    },
+    {
+      "id": "1d1ed095-6716-40e5-a853-6e8751e19bb4",
+      "instructorId": "user-instructor-1",
+      "title": "HTML & CSS Fundamentals",
+      "description": "A course based on the reviewer covering modern HTML structure and elements, CSS fundamentals, and advanced CSS properties and effects.",
+      "status": "published",
+      "reviewStatus": "none",
+      "reviewFeedback": null,
+      "submittedAt": null,
+      "createdAt": "2026-10-03T06:47:16.899Z",
+      "updatedAt": "2026-10-03T06:48:59.998Z"
+    },
+    {
+      "id": "d2f286dd-42a2-44d5-abc7-d3dad3fa8768",
+      "instructorId": "user-instructor-1",
+      "title": "HirangLikha: Weaver Mentorship and Digital Promotion",
+      "description": "A draft course based on the HirangLikha capstone proposal. It covers the project’s purpose, platform features, intended users, limitations, supporting studies, and development plan.",
+      "status": "published",
+      "reviewStatus": "none",
+      "reviewFeedback": null,
+      "submittedAt": null,
+      "createdAt": "2026-10-03T06:51:50.032Z",
+      "updatedAt": "2026-10-03T06:54:43.958Z"
+    },
+    {
+      "id": "80c32c90-53a7-48d0-8bf4-12569a38bff6",
+      "instructorId": "user-instructor-1",
+      "title": "HirangLikha: AI-Based Weaver Mentorship and Digital Promotion",
+      "description": "An introduction to HirangLikha, a proposed platform for supporting the preservation of Filipino weaving knowledge, connecting master weavers with apprentices, and promoting woven products digitally.",
+      "status": "draft",
+      "reviewStatus": "submitted",
+      "reviewFeedback": null,
+      "submittedAt": "2026-10-03T06:53:49.008Z",
+      "createdAt": "2026-10-03T06:53:14.915Z",
+      "updatedAt": "2026-10-03T06:53:49.010Z"
+    }
+  ],
+  "modules": [
+    {
+      "id": "module-1",
+      "courseId": "course-1",
+      "title": "Getting Started",
+      "sequenceOrder": 1,
+      "createdAt": "2026-01-15T09:00:00.000Z"
+    },
+    {
+      "courseId": "course-1",
+      "title": "asdasd",
+      "sequenceOrder": 2,
+      "id": "5802f30e-f064-482a-a50f-8ffc35f9d808",
+      "createdAt": "2026-09-22T06:21:28.644Z"
+    },
+    {
+      "courseId": "course-2",
+      "title": "Schema basics",
+      "sequenceOrder": 1,
+      "id": "4290dcc2-9317-42f2-af8d-b9a48cf864d4",
+      "createdAt": "2026-09-22T06:29:34.080Z"
+    },
+    {
+      "courseId": "2a227af0-8241-4bcb-be90-93367d9869e7",
+      "title": "asdasdas",
+      "sequenceOrder": 1,
+      "id": "19356e72-1e38-4ac8-acdb-9d7efa1cdf88",
+      "createdAt": "2026-09-22T09:45:25.972Z"
+    },
+    {
+      "courseId": "2a227af0-8241-4bcb-be90-93367d9869e7",
+      "title": "asdsadda",
+      "sequenceOrder": 2,
+      "id": "422a1b05-1635-4609-a701-147a0024b63f",
+      "createdAt": "2026-09-22T09:46:04.530Z"
+    },
+    {
+      "id": "fb6cffbe-3385-497b-9e12-4f4b665859e5",
+      "courseId": "f1054129-19b0-4367-b41d-826c6a4f9ebe",
+      "title": "Tables and Keys",
+      "sequenceOrder": 1,
+      "createdAt": "2026-10-02T21:33:00.766Z"
+    },
+    {
+      "id": "d58530df-3142-484c-9f0f-3c607b101bc3",
+      "courseId": "c7c1ac74-874c-4016-b374-017fd6841101",
+      "title": "Week 2: Systems Integration & Architecture",
+      "sequenceOrder": 2,
+      "createdAt": "2026-10-02T21:34:59.267Z"
+    },
+    {
+      "id": "a213ac07-745b-4cbd-b33d-ecd2569896b1",
+      "courseId": "c7c1ac74-874c-4016-b374-017fd6841101",
+      "title": "Week 3: Project Life Cycle and SDLC",
+      "sequenceOrder": 1,
+      "createdAt": "2026-10-02T21:34:59.267Z"
+    },
+    {
+      "id": "fe23628f-746e-4fcd-a942-293f3723435f",
+      "courseId": "c7c1ac74-874c-4016-b374-017fd6841101",
+      "title": "Week 4: Requirements and Modeling",
+      "sequenceOrder": 3,
+      "createdAt": "2026-10-02T21:34:59.267Z"
+    },
+    {
+      "id": "44d121ad-658d-478f-b622-a1857f738a46",
+      "courseId": "c7c1ac74-874c-4016-b374-017fd6841101",
+      "title": "Week 5: Architectural Patterns and Styles",
+      "sequenceOrder": 4,
+      "createdAt": "2026-10-02T21:34:59.267Z"
+    },
+    {
+      "courseId": "0827b986-247f-4633-b142-fab4daadccf6",
+      "title": "asdads",
+      "sequenceOrder": 1,
+      "id": "432fd33f-d808-466a-8cac-c919d7993f42",
+      "createdAt": "2026-10-02T22:15:44.157Z"
+    },
+    {
+      "id": "b17b1c44-8766-4fb3-ab98-3d93fadfd02e",
+      "courseId": "1d1ed095-6716-40e5-a853-6e8751e19bb4",
+      "title": "HTML Fundamentals",
+      "sequenceOrder": 1,
+      "createdAt": "2026-10-03T06:47:16.899Z"
+    },
+    {
+      "id": "3ea84ca3-0762-4912-8653-844052c3439c",
+      "courseId": "1d1ed095-6716-40e5-a853-6e8751e19bb4",
+      "title": "CSS Fundamentals",
+      "sequenceOrder": 2,
+      "createdAt": "2026-10-03T06:47:16.899Z"
+    },
+    {
+      "id": "fbce35ef-6b71-4f06-9719-8c9def8693cf",
+      "courseId": "1d1ed095-6716-40e5-a853-6e8751e19bb4",
+      "title": "CSS Layout and Appearance",
+      "sequenceOrder": 3,
+      "createdAt": "2026-10-03T06:47:16.899Z"
+    },
+    {
+      "id": "8d8c256b-9004-4219-8425-42646c58ea06",
+      "courseId": "1d1ed095-6716-40e5-a853-6e8751e19bb4",
+      "title": "Advanced CSS Effects",
+      "sequenceOrder": 4,
+      "createdAt": "2026-10-03T06:47:16.899Z"
+    },
+    {
+      "id": "394741dd-602c-4c8d-b8ec-0df0dc422f10",
+      "courseId": "d2f286dd-42a2-44d5-abc7-d3dad3fa8768",
+      "title": "Project Context and Purpose",
+      "sequenceOrder": 1,
+      "createdAt": "2026-10-03T06:51:50.032Z"
+    },
+    {
+      "id": "f598eef5-0502-40b5-a5ac-728d0665d4a9",
+      "courseId": "d2f286dd-42a2-44d5-abc7-d3dad3fa8768",
+      "title": "Users and Platform Features",
+      "sequenceOrder": 2,
+      "createdAt": "2026-10-03T06:51:50.032Z"
+    },
+    {
+      "id": "c0cd9da2-4460-496e-8c1b-38a27f9c5716",
+      "courseId": "d2f286dd-42a2-44d5-abc7-d3dad3fa8768",
+      "title": "Scope and Limitations",
+      "sequenceOrder": 3,
+      "createdAt": "2026-10-03T06:51:50.032Z"
+    },
+    {
+      "id": "aa23ec63-cf9f-4e42-8e7e-9b502cd9884d",
+      "courseId": "d2f286dd-42a2-44d5-abc7-d3dad3fa8768",
+      "title": "Supporting Studies and Development Plan",
+      "sequenceOrder": 4,
+      "createdAt": "2026-10-03T06:51:50.032Z"
+    },
+    {
+      "id": "84fa3d7d-497c-4b63-b076-d6e4a4c9e559",
+      "courseId": "80c32c90-53a7-48d0-8bf4-12569a38bff6",
+      "title": "Weaving Challenges and HirangLikha",
+      "sequenceOrder": 1,
+      "createdAt": "2026-10-03T06:53:14.915Z"
+    },
+    {
+      "id": "a26e7b71-e6f3-47fc-9369-fc25721849f1",
+      "courseId": "80c32c90-53a7-48d0-8bf4-12569a38bff6",
+      "title": "Profiles, Mentorship, and Matching",
+      "sequenceOrder": 2,
+      "createdAt": "2026-10-03T06:53:14.915Z"
+    },
+    {
+      "id": "06b3eef6-0ef7-4504-a420-1dcffe84a7aa",
+      "courseId": "80c32c90-53a7-48d0-8bf4-12569a38bff6",
+      "title": "Digital Promotion and Marketplace",
+      "sequenceOrder": 3,
+      "createdAt": "2026-10-03T06:53:14.915Z"
+    },
+    {
+      "id": "9302b584-5c3f-43e2-be87-08bfaa4c1fe2",
+      "courseId": "80c32c90-53a7-48d0-8bf4-12569a38bff6",
+      "title": "Scope, Limitations, and Development",
+      "sequenceOrder": 4,
+      "createdAt": "2026-10-03T06:53:14.915Z"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "lesson-1",
+      "moduleId": "module-1",
+      "title": "What is the Web?",
+      "sequenceOrder": 2,
+      "contentType": "video",
+      "contentRef": "https://example.com/lesson-1",
+      "durationMinutes": 12,
+      "createdAt": "2026-01-15T09:30:00.000Z"
+    },
+    {
+      "id": "lesson-2",
+      "moduleId": "module-1",
+      "title": "Your First HTML Page",
+      "sequenceOrder": 1,
+      "contentType": "text",
+      "contentRef": "Every HTML page starts with a doctype, then an html element that holds a head and a body. The head is metadata: title, character set, links to stylesheets. The body is what people see.\n\nHeadings, paragraphs, lists, links, and images are the core elements. Nest them the way the content nests: a section contains a heading and the paragraphs that belong to it.\n\nBrowsers are forgiving of mistakes, which is why broken markup can still “work.” Write the structure you mean anyway — later CSS and accessibility tools depend on it.",
+      "durationMinutes": 20,
+      "createdAt": "2026-01-15T10:00:00.000Z"
+    },
+    {
+      "moduleId": "4290dcc2-9317-42f2-af8d-b9a48cf864d4",
+      "title": "Tables and keys",
+      "sequenceOrder": 1,
+      "contentType": "text",
+      "contentRef": "A table stores one kind of thing. A primary key uniquely identifies each row.\n\nForeign keys point at another table’s primary key. That is how related records stay connected.",
+      "durationMinutes": 20,
+      "id": "a1937b14-33f8-476d-9928-3ebd1eda453a",
+      "createdAt": "2026-09-22T06:30:03.740Z"
+    },
+    {
+      "moduleId": "4290dcc2-9317-42f2-af8d-b9a48cf864d4",
+      "title": "Primary keys",
+      "sequenceOrder": 2,
+      "contentType": "quiz",
+      "contentRef": "{\"prompt\":\"What does a primary key do?\",\"choices\":[\"Identifies each row uniquely\",\"Stores CSS for the page\"],\"correctIndex\":0}",
+      "durationMinutes": null,
+      "id": "1902d8cf-80ea-42bb-a1d5-de8cf1895e8e",
+      "createdAt": "2026-09-22T06:30:39.434Z"
+    },
+    {
+      "moduleId": "5802f30e-f064-482a-a50f-8ffc35f9d808",
+      "title": "test",
+      "sequenceOrder": 1,
+      "contentType": "video",
+      "contentRef": "",
+      "durationMinutes": 10,
+      "id": "b156eec8-c3cb-4d98-bd3c-6a4989b7328f",
+      "createdAt": "2026-09-22T06:35:06.221Z"
+    },
+    {
+      "moduleId": "19356e72-1e38-4ac8-acdb-9d7efa1cdf88",
+      "title": "01",
+      "sequenceOrder": 1,
+      "contentType": "text",
+      "contentRef": "asdsdasdasda",
+      "durationMinutes": 213,
+      "id": "14e652f1-5071-424b-aa88-838935667fc0",
+      "createdAt": "2026-09-22T09:45:38.101Z"
+    },
+    {
+      "moduleId": "19356e72-1e38-4ac8-acdb-9d7efa1cdf88",
+      "title": "asdsaddsa",
+      "sequenceOrder": 2,
+      "contentType": "quiz",
+      "contentRef": "{\"prompt\":\"asdad\",\"choices\":[\"asdasd\"],\"correctIndex\":0}",
+      "durationMinutes": null,
+      "id": "1fa87efa-0e48-4f9e-b649-87f4171646a3",
+      "createdAt": "2026-09-22T09:45:49.449Z"
+    },
+    {
+      "moduleId": "19356e72-1e38-4ac8-acdb-9d7efa1cdf88",
+      "title": "adaas",
+      "sequenceOrder": 3,
+      "contentType": "text",
+      "contentRef": "",
+      "durationMinutes": null,
+      "id": "aa8b42b8-e431-4364-bdfd-9257f45e7ca5",
+      "createdAt": "2026-09-22T09:46:30.304Z"
+    },
+    {
+      "moduleId": "422a1b05-1635-4609-a701-147a0024b63f",
+      "title": "asdsda",
+      "sequenceOrder": 1,
+      "contentType": "text",
+      "contentRef": "",
+      "durationMinutes": null,
+      "id": "d9096312-b4f6-4d6c-8984-00b9184ed46b",
+      "createdAt": "2026-09-22T09:47:01.932Z"
+    },
+    {
+      "id": "6f76d1f1-5731-4f69-b963-047d1d233d1f",
+      "moduleId": "fb6cffbe-3385-497b-9e12-4f4b665859e5",
+      "title": "What a Table Stores",
+      "sequenceOrder": 1,
+      "contentType": "text",
+      "contentRef": "A table stores one kind of thing.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-02T21:33:00.766Z"
+    },
+    {
+      "id": "09ce6491-482a-415f-b931-c0c79fc400e8",
+      "moduleId": "fb6cffbe-3385-497b-9e12-4f4b665859e5",
+      "title": "Primary Keys",
+      "sequenceOrder": 2,
+      "contentType": "text",
+      "contentRef": "A primary key uniquely identifies each row in a table.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-02T21:33:00.766Z"
+    },
+    {
+      "id": "ff44230d-7620-4add-94f9-590833e53c05",
+      "moduleId": "fb6cffbe-3385-497b-9e12-4f4b665859e5",
+      "title": "Foreign Keys",
+      "sequenceOrder": 3,
+      "contentType": "text",
+      "contentRef": "A foreign key points at another table's primary key.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-02T21:33:00.766Z"
+    },
+    {
+      "id": "930520b0-0a3f-4bb7-b923-597fc6687821",
+      "moduleId": "fb6cffbe-3385-497b-9e12-4f4b665859e5",
+      "title": "Check Your Understanding",
+      "sequenceOrder": 4,
+      "contentType": "quiz",
+      "contentRef": "{\"prompt\":\"What does a primary key do?\",\"choices\":[\"Uniquely identifies each row\",\"Stores one kind of thing\",\"Points at another table's primary key\"],\"correctIndex\":0}",
+      "durationMinutes": null,
+      "createdAt": "2026-10-02T21:33:00.766Z"
+    },
+    {
+      "id": "94416ce8-ccb2-4538-9f26-47a52b645d9c",
+      "moduleId": "d58530df-3142-484c-9f0f-3c607b101bc3",
+      "title": "Systems and Systems Integration",
+      "sequenceOrder": 1,
+      "contentType": "text",
+      "contentRef": "A system is interconnected components working together to achieve a specific goal. Systems integration connects independent systems, applications, databases, or services so they communicate and function as one unified system. Without integration, organizations may face data duplication, manual data entry, more errors, slower processes, and data silos. Integration supports automatic data flow, streamlined processes, consistent information, and better collaboration. Its benefits include data accuracy, efficiency, better decisions, lower costs, improved customer experience, scalability, security, analytics support, and competitive advantage.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-02T21:34:59.267Z"
+    },
+    {
+      "id": "111d77d6-28b3-4a1f-973c-d81974e52fd8",
+      "moduleId": "d58530df-3142-484c-9f0f-3c607b101bc3",
+      "title": "System Architecture and Layers",
+      "sequenceOrder": 2,
+      "contentType": "text",
+      "contentRef": "System architecture is the blueprint or fundamental structure of a system: its components, relationships, interactions, and design principles. Its layers include Presentation (user interface), Application (business logic), Data (store and manage data), Integration (connect systems), Security (protect system and data), Infrastructure (hardware or cloud environment), Communication (component-to-component communication), API Gateway (exposed functionality), Monitoring and Observability (system health), and AI and Intelligence (prediction, recommendations, and GenAI).",
+      "durationMinutes": null,
+      "createdAt": "2026-10-02T21:34:59.267Z"
+    },
+    {
+      "id": "63bf514c-9408-4a46-afae-e0df0b5383ad",
+      "moduleId": "d58530df-3142-484c-9f0f-3c607b101bc3",
+      "title": "Architecture Terms",
+      "sequenceOrder": 3,
+      "contentType": "text",
+      "contentRef": "Authentication asks, “Who are you?” Authorization asks, “What are you allowed to access?” Synchronous communication has an immediate response; asynchronous communication happens later. An API lets systems expose or use functionality. Observability consists of metrics, logs, and traces.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-02T21:34:59.267Z"
+    },
+    {
+      "id": "43beaf0b-6a6e-421e-84c5-ddd1e648eb63",
+      "moduleId": "d58530df-3142-484c-9f0f-3c607b101bc3",
+      "title": "Systems Integration Check",
+      "sequenceOrder": 4,
+      "contentType": "quiz",
+      "contentRef": "{\"prompt\":\"What does system integration connect?\",\"choices\":[\"Independent systems, applications, databases, or services\",\"Only hardware components\",\"Only project schedules\"],\"correctIndex\":0}",
+      "durationMinutes": null,
+      "createdAt": "2026-10-02T21:34:59.267Z"
+    },
+    {
+      "id": "4c2c47d6-be11-4e95-83bd-412bfe0f6e6c",
+      "moduleId": "a213ac07-745b-4cbd-b33d-ecd2569896b1",
+      "title": "Project Life Cycle",
+      "sequenceOrder": 1,
+      "contentType": "text",
+      "contentRef": "The Project Life Cycle (PLC) manages the entire project. Its five phases are Initiation, Planning, Execution, Monitoring and Controlling, and Closure. Initiation considers the business need, objectives, feasibility, stakeholders, approval, and Project Charter. Feasibility types are Technical, Economic, Operational, Legal, and Schedule.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-02T21:34:59.267Z"
+    },
+    {
+      "id": "8c5bd3ee-246b-4386-b362-17cbc592bc54",
+      "moduleId": "a213ac07-745b-4cbd-b33d-ecd2569896b1",
+      "title": "Planning Through Closure",
+      "sequenceOrder": 2,
+      "contentType": "text",
+      "contentRef": "Planning covers scope, schedule, budget, risks, resources, communication, and the Work Breakdown Structure (WBS), which breaks a project into smaller tasks. Tools include Gantt charts, network diagrams, and CPM. Execution turns plans into actual work through team management, resource use, development, quality assurance, and procurement. Monitoring and Controlling compares actual performance with the plan and includes performance, risk, and quality monitoring, change control, and issue management. Closure includes final acceptance, deliverable handover, lessons learned, resource release, and documentation.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-02T21:34:59.267Z"
+    },
+    {
+      "id": "2546d65d-332e-4bdc-bcf4-6fcbe15373c9",
+      "moduleId": "a213ac07-745b-4cbd-b33d-ecd2569896b1",
+      "title": "Software Development Life Cycle",
+      "sequenceOrder": 4,
+      "contentType": "text",
+      "contentRef": "The Software Development Life Cycle (SDLC) specifically manages software development. It is the structured process for designing, developing, testing, deploying, and maintaining software. Its six phases are Requirements Analysis (what the user needs), System Design (how to build it), Development/Coding, Testing (find defects), Deployment (release it), and Maintenance (fix or improve it). Testing types include Functional Testing, Integration Testing, System Testing, and UAT (User Acceptance Testing). PLC manages the project; SDLC manages the software.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-02T21:34:59.267Z"
+    },
+    {
+      "id": "62cf569c-df01-4e86-ab7d-a91d93f6f5c5",
+      "moduleId": "a213ac07-745b-4cbd-b33d-ecd2569896b1",
+      "title": "Life Cycle Check",
+      "sequenceOrder": 3,
+      "contentType": "quiz",
+      "contentRef": "{\"prompt\":\"Which PLC phase compares actual performance with the plan?\",\"choices\":[\"Initiation\",\"Execution\",\"Monitoring and Controlling\",\"Closure\"],\"correctIndex\":2}",
+      "durationMinutes": null,
+      "createdAt": "2026-10-02T21:34:59.267Z"
+    },
+    {
+      "id": "a37ee4af-0933-4893-b5c7-030a964543fa",
+      "moduleId": "fe23628f-746e-4fcd-a942-293f3723435f",
+      "title": "Requirements Modeling and Use Cases",
+      "sequenceOrder": 1,
+      "contentType": "text",
+      "contentRef": "Requirements modeling documents, analyzes, and visualizes what a system must do before development. Requirement types include Business, Stakeholder, Functional, and Non-functional. Without requirements modeling, the wrong system may be built, features may be missed, stakeholders may have different expectations, and rework costs may increase. A Use Case Diagram shows how users interact with a system and focuses on its services. Its components are Actor (who interacts), Use Case (what the system does), and System Boundary (what is inside or outside).",
+      "durationMinutes": null,
+      "createdAt": "2026-10-02T21:34:59.267Z"
+    },
+    {
+      "id": "3e006495-8d29-482d-8031-501ebc639104",
+      "moduleId": "fe23628f-746e-4fcd-a942-293f3723435f",
+      "title": "Data Flow Diagrams",
+      "sequenceOrder": 2,
+      "contentType": "text",
+      "contentRef": "A Data Flow Diagram (DFD) focuses on data: where it comes from, how it is processed, where it is stored, and where it goes. Unlike a Use Case Diagram, it focuses on information flow, not user interactions. Its components are External Entity, Process, Data Flow, and Data Store. Level 0 shows the entire system as one process, external entities, and major data flows, without internal processes or database details. Level 1 breaks the system into major processes. Level 2 expands a Level 1 process into subprocesses; this is called functional decomposition.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-02T21:34:59.267Z"
+    },
+    {
+      "id": "a945a0a7-ea6a-4724-9352-3a3d9966670c",
+      "moduleId": "fe23628f-746e-4fcd-a942-293f3723435f",
+      "title": "UML and BPMN",
+      "sequenceOrder": 3,
+      "contentType": "text",
+      "contentRef": "UML (Unified Modeling Language) is used to visualize, specify, construct, and document software systems. Structural UML describes what a system is: Class Diagrams show classes, attributes, methods, and relationships; Component Diagrams show software modules and dependencies; Deployment Diagrams show hardware/software deployment. Behavioral UML describes how a system acts: Use Case Diagrams show users and systems, Activity Diagrams show workflows, and Sequence Diagrams show interactions over time. BPMN (Business Process Model and Notation) is used to visualize, document, analyze, and improve business processes. Its core symbols include a circle for an event, rounded rectangle for an activity, diamond for a gateway or decision, solid arrow for sequence flow, and dashed arrow for message flow. A pool represents a participant or organization; a lane represents a role or department. Artifacts include data objects and annotations.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-02T21:34:59.267Z"
+    },
+    {
+      "id": "3099b55d-0081-4bf0-a81e-e8a9badb2b32",
+      "moduleId": "fe23628f-746e-4fcd-a942-293f3723435f",
+      "title": "Diagram Check",
+      "sequenceOrder": 4,
+      "contentType": "quiz",
+      "contentRef": "{\"prompt\":\"Which diagram focuses on information and data flow?\",\"choices\":[\"Use Case Diagram\",\"Data Flow Diagram\",\"Class Diagram\",\"Sequence Diagram\"],\"correctIndex\":1}",
+      "durationMinutes": null,
+      "createdAt": "2026-10-02T21:34:59.267Z"
+    },
+    {
+      "id": "c0c88d56-e20a-41f3-9c9b-294b3f61d2c9",
+      "moduleId": "44d121ad-658d-478f-b622-a1857f738a46",
+      "title": "Patterns, Styles, and Layered Architecture",
+      "sequenceOrder": 1,
+      "contentType": "text",
+      "contentRef": "An architectural pattern is a reusable solution to commonly occurring software design problems, providing best practices, proven approaches, standard structures, and guidance. An architectural style is a system’s overall organization and communication strategy. Layered Architecture separates responsibilities into Presentation (UI), Business (rules and logic), Data Access (bridge to the database), and Database (permanent storage). Its order is UI → Logic → Access → DB, and it is useful for separation of concerns and organized structure.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-02T21:34:59.267Z"
+    },
+    {
+      "id": "56ae5bd4-4b28-4a64-8776-5490decb3af7",
+      "moduleId": "44d121ad-658d-478f-b622-a1857f738a46",
+      "title": "SOA and Microservices",
+      "sequenceOrder": 2,
+      "contentType": "text",
+      "contentRef": "Service-Oriented Architecture (SOA) treats business functions as reusable services. Its main goal is reuse rather than rebuilding. A Service Consumer requests a service, an ESB acts as a communication hub or traffic controller, and a Service Provider provides business functionality. A Service Registry is a directory for locating services. Microservices Architecture divides an application into small, independent services, with one service for one business function. Components include a client, API Gateway, microservices, independent databases, and service discovery. Microservices are independent, deployable, replaceable, and scalable.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-02T21:34:59.267Z"
+    },
+    {
+      "id": "930268fd-370b-470f-9b98-a01a36c5d243",
+      "moduleId": "44d121ad-658d-478f-b622-a1857f738a46",
+      "title": "Event-Driven Architecture and Style Comparison",
+      "sequenceOrder": 3,
+      "contentType": "text",
+      "contentRef": "In Event-Driven Architecture (EDA), components communicate through events, such as Order Placed, Payment Success, Ride Booked, or User Registered. An Event Producer generates an event; an Event Broker receives, routes, and distributes it; an Event Consumer responds to or processes it. An Event Channel or Topic is where events are published. The main style focuses are: Layered—separation; SOA—reuse; Microservices—independence; EDA—events; Client-Server—request-response communication.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-02T21:34:59.267Z"
+    },
+    {
+      "id": "1f4d32eb-2d5a-4dc3-ae10-8a656a760757",
+      "moduleId": "44d121ad-658d-478f-b622-a1857f738a46",
+      "title": "Architectural Styles Check",
+      "sequenceOrder": 4,
+      "contentType": "quiz",
+      "contentRef": "{\"prompt\":\"Which architecture uses reusable business services as its main idea?\",\"choices\":[\"Layered Architecture\",\"SOA\",\"Microservices Architecture\",\"Event-Driven Architecture\"],\"correctIndex\":1}",
+      "durationMinutes": null,
+      "createdAt": "2026-10-02T21:34:59.267Z"
+    },
+    {
+      "id": "620b95e4-15a9-4524-8e96-4d954f73e75b",
+      "moduleId": "b17b1c44-8766-4fb3-ab98-3d93fadfd02e",
+      "title": "HTML and Document Structure",
+      "sequenceOrder": 1,
+      "contentType": "text",
+      "contentRef": "HTML (Hyper Text Markup Language) is the standard markup language for creating web pages. It describes a page’s structure and uses elements to display and label content such as headings, paragraphs, and links. A basic document has a <!DOCTYPE html> declaration, a root <html> element, a <head> for meta information, a <title> for the tab name, and a <body> for visible content. An HTML element consists of a start tag, content, and an end tag.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-03T06:47:16.899Z"
+    },
+    {
+      "id": "25606f4a-97ab-4da7-9283-216083767e65",
+      "moduleId": "b17b1c44-8766-4fb3-ab98-3d93fadfd02e",
+      "title": "Links, Images, and Formatting",
+      "sequenceOrder": 2,
+      "contentType": "text",
+      "contentRef": "Links use the <a> tag; the href attribute gives the destination. Target values include _self (same tab, the default), _blank (new tab), _parent (parent frame), and _top (full window). A mailto: link opens an email program. Images use <img> with attributes such as src, alt, width, and height. Empty elements have no closing tag; <br> is an example. Formatting tags include <b> for bold, <strong> for important text, <i> for italic, <em> for emphasized text, <mark> for highlighted text, <small> for smaller text, <del> for deleted text, <ins> for inserted text, <sub> for subscript, and <sup> for superscript. HTML comments use <!-- comment text --> and are not displayed in the browser.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-03T06:47:16.899Z"
+    },
+    {
+      "id": "b5ff5b9d-4eff-45e3-8203-d02e0287359d",
+      "moduleId": "b17b1c44-8766-4fb3-ab98-3d93fadfd02e",
+      "title": "Tables and Lists",
+      "sequenceOrder": 3,
+      "contentType": "text",
+      "contentRef": "In HTML tables, <tr> represents a table row, <th> a table header, and <td> table data. Unordered lists use <ul> with list items marked by <li>. Ordered lists use <ol> with <li> items.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-03T06:47:16.899Z"
+    },
+    {
+      "id": "f7ab1048-61c9-44d8-bbc3-4ab50796dd0e",
+      "moduleId": "3ea84ca3-0762-4912-8653-844052c3439c",
+      "title": "CSS, Syntax, and Selectors",
+      "sequenceOrder": 1,
+      "contentType": "text",
+      "contentRef": "CSS (Cascading Style Sheets) styles HTML elements and controls layout, design, and responsiveness. It can style multiple pages at once. CSS defines design, layout, and display on different devices. Its syntax is selector { property: value; }. The selector targets an HTML element; the declaration block contains properties; and a property-value pair defines a style. Five selector types are simple (name, id, class), combinator (relationships), pseudo-class (state), pseudo-element (part of an element), and attribute (attribute/value). An element selector can target an element name, such as p. An ID selector uses # and is unique per page.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-03T06:47:16.899Z"
+    },
+    {
+      "id": "be700964-c8b8-4b62-839b-757a68ca0245",
+      "moduleId": "3ea84ca3-0762-4912-8653-844052c3439c",
+      "title": "Ways to Use CSS",
+      "sequenceOrder": 2,
+      "contentType": "text",
+      "contentRef": "CSS can be used in three ways. External CSS is stored in a .css file and linked with <link rel=\"stylesheet\" href=\"style.css\">; it is best for multiple pages. Internal CSS goes inside a <style> element in the <head>. Inline CSS is applied directly to an element, such as <p style=\"color:red;\">Text</p>. CSS comments use /* comment text */ and are ignored by the browser.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-03T06:47:16.899Z"
+    },
+    {
+      "id": "05dcba39-c839-40fc-8eaa-ec1bc28e1e1c",
+      "moduleId": "3ea84ca3-0762-4912-8653-844052c3439c",
+      "title": "Colors, Backgrounds, Borders, Margins, and Padding",
+      "sequenceOrder": 3,
+      "contentType": "text",
+      "contentRef": "CSS colors can use color names, RGB, HEX, HSL, RGBA, or HSLA. Backgrounds add background effects. Border properties include style, width, and color; border width can be thin, medium, thick, or a specific unit such as px or em. Margin is space outside an element, with margin-top, margin-right, margin-bottom, and margin-left properties. Values include auto, lengths such as px or %, and inherit. Padding is space inside an element, with corresponding top, right, bottom, and left properties; values include lengths and inherit. Both support a top-right-bottom-left shorthand.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-03T06:47:16.899Z"
+    },
+    {
+      "id": "e6e9f7e1-1bcd-486d-8495-5b395a0f2c35",
+      "moduleId": "fbce35ef-6b71-4f06-9719-8c9def8693cf",
+      "title": "Box Model and Dimensions",
+      "sequenceOrder": 1,
+      "contentType": "text",
+      "contentRef": "The CSS box model wraps every HTML element. From inner to outer, its parts are content (the actual text or image), padding (space inside the border), border (surrounding padding and content), and margin (space outside the border). Padding and margin are transparent. Total element size equals content plus padding plus border plus margin. Width and height control the content area; actual rendered size includes padding and border unless box-sizing is used.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-03T06:47:16.899Z"
+    },
+    {
+      "id": "7506238d-3f14-4def-b639-f65c44ef7e53",
+      "moduleId": "fbce35ef-6b71-4f06-9719-8c9def8693cf",
+      "title": "Text and Fonts",
+      "sequenceOrder": 2,
+      "contentType": "text",
+      "contentRef": "The text-align property accepts left (the default), right, center, and justify; justify gives lines equal width by stretching them. The font-size property can use px, a fixed-size unit described as most common, or keywords: xx-small, x-small, small, medium (the default), large, x-large, and xx-large.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-03T06:47:16.899Z"
+    },
+    {
+      "id": "bdcc725e-328c-4e21-87a8-0b2a40ed4bfe",
+      "moduleId": "fbce35ef-6b71-4f06-9719-8c9def8693cf",
+      "title": "Corners, Border Images, and Background Size",
+      "sequenceOrder": 3,
+      "contentType": "text",
+      "contentRef": "The border-radius property creates curved edges and works with borders, background-color, and images. The border-image shorthand has sub-properties: border-image-source (image path), border-image-slice (how the image is cut), border-image-width (thickness), border-image-outset (extends the border outward), and border-image-repeat (stretch, repeat, or round). The background-size property accepts auto (the default), contain (fit inside the container), cover (fill the entire container), or a custom length such as px or %.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-03T06:47:16.899Z"
+    },
+    {
+      "id": "e8ec0d36-19da-4ed0-92ab-264a2ccd0565",
+      "moduleId": "8d8c256b-9004-4219-8425-42646c58ea06",
+      "title": "Transforms and Transitions",
+      "sequenceOrder": 1,
+      "contentType": "text",
+      "contentRef": "The transform property includes 2D functions: translate(x, y) to move, rotate(angle) to rotate, scale(x, y) to resize, scaleX(), scaleY(), skewX(), skewY(), skew(), and matrix() for an advanced combination. 3D transform functions include rotateX(), rotateY(), and rotateZ(). Transitions make changes to property values smooth. The transition shorthand includes transition-property, transition-duration, transition-timing-function, and transition-delay.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-03T06:47:16.899Z"
+    },
+    {
+      "id": "4f578bf8-355d-4df8-9fc4-5a63aee23aba",
+      "moduleId": "8d8c256b-9004-4219-8425-42646c58ea06",
+      "title": "Animations, Tooltips, and Images",
+      "sequenceOrder": 2,
+      "contentType": "text",
+      "contentRef": "CSS animations change styles over time without JavaScript. @keyframes defines animation stages. Key concepts include animation-name and animation-duration; the default duration is 0s, which means no animation. The animation must be bound to an element. A tooltip is text shown when a mouse hovers over an element and is used for extra information. Images can be styled with border-radius for rounded images and can be combined with borders or backgrounds.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-03T06:47:16.899Z"
+    },
+    {
+      "id": "189e5856-2550-4495-b72a-f780ea9eba17",
+      "moduleId": "8d8c256b-9004-4219-8425-42646c58ea06",
+      "title": "CSS Fundamentals Check",
+      "sequenceOrder": 3,
+      "contentType": "quiz",
+      "contentRef": "{\"prompt\":\"According to the reviewer, which part of the box model is space outside an element?\",\"choices\":[\"Content\",\"Padding\",\"Border\",\"Margin\"],\"correctIndex\":3}",
+      "durationMinutes": null,
+      "createdAt": "2026-10-03T06:47:16.899Z"
+    },
+    {
+      "id": "8c04806c-ef05-418e-9a41-2be1e2520bdd",
+      "moduleId": "394741dd-602c-4c8d-b8ec-0df0dc422f10",
+      "title": "Challenges Facing Filipino Weaving Communities",
+      "sequenceOrder": 1,
+      "contentType": "text",
+      "contentRef": "Traditional Filipino weaving communities may face difficulties preserving cultural knowledge and sustaining livelihoods. Master weavers may have limited opportunities to pass their skills to younger generations, while aspiring learners may struggle to find experienced teachers. Weavers may also have limited digital visibility due to low digital literacy, limited online promotion, poor product presentation, and a lack of accessible ways to share cultural stories.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-03T06:51:50.032Z"
+    },
+    {
+      "id": "bfc9f38f-2f21-4bf0-ba61-4584d08dc03e",
+      "moduleId": "394741dd-602c-4c8d-b8ec-0df0dc422f10",
+      "title": "The HirangLikha Proposal",
+      "sequenceOrder": 2,
+      "contentType": "text",
+      "contentRef": "HirangLikha is proposed as an AI-based platform for weaving mentorship and digital promotion of Filipino weaving. It is intended to connect master weavers with aspiring apprentices and provide digital tools that help weavers promote products and support their livelihoods. The project theme is AI-powered cultural preservation and sustainable livelihood for traditional crafts.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-03T06:51:50.032Z"
+    },
+    {
+      "id": "fac80d58-3ea1-4100-9356-683a5460f87e",
+      "moduleId": "394741dd-602c-4c8d-b8ec-0df0dc422f10",
+      "title": "Project Goal",
+      "sequenceOrder": 3,
+      "contentType": "quiz",
+      "contentRef": "{\"prompt\":\"What is the general objective of HirangLikha?\",\"choices\":[\"To connect master weavers with aspiring apprentices and provide digital tools to promote and support Filipino weavers’ l\",\"To replace direct cultural instruction with an online system\",\"To cover every weaving tradition and community in the Philippines\"],\"correctIndex\":0}",
+      "durationMinutes": null,
+      "createdAt": "2026-10-03T06:51:50.032Z"
+    },
+    {
+      "id": "72c4e7a1-e623-435d-9b43-2610a0569a4b",
+      "moduleId": "f598eef5-0502-40b5-a5ac-728d0665d4a9",
+      "title": "Profiles and AI-Based Matching",
+      "sequenceOrder": 1,
+      "contentType": "text",
+      "contentRef": "Master weavers can create profiles describing their weaving expertise, availability, and location. Apprentices can register their interests and preferred learning arrangements. HirangLikha is intended to match apprentices with suitable master weavers using factors such as location, schedule, availability, and weaving interests. The effectiveness of matching depends on the accuracy and completeness of user-provided information.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-03T06:51:50.032Z"
+    },
+    {
+      "id": "c4bf9bad-5d8c-4cbc-a934-01a7d02452d6",
+      "moduleId": "f598eef5-0502-40b5-a5ac-728d0665d4a9",
+      "title": "Mentorship Management",
+      "sequenceOrder": 2,
+      "contentType": "text",
+      "contentRef": "The platform is intended to support mentorship through session scheduling and apprenticeship progress tracking. These tools facilitate mentorship activities and track learning milestones. HirangLikha supports knowledge transmission but does not replace direct cultural instruction from master weavers.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-03T06:51:50.032Z"
+    },
+    {
+      "id": "bc47ce9b-8c2d-4e53-8e66-5d49ff2d7c49",
+      "moduleId": "f598eef5-0502-40b5-a5ac-728d0665d4a9",
+      "title": "Digital Promotion and Marketplace",
+      "sequenceOrder": 3,
+      "contentType": "text",
+      "contentRef": "HirangLikha’s digital promotion tools include AI-assisted product photo enhancement, product description generation, and pattern or motif tagging. Its online showcase and marketplace are intended to let weavers display products, share cultural stories and techniques, and connect with potential buyers. AI-generated descriptions, enhancements, and tags may contain errors or misrepresent cultural context.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-03T06:51:50.032Z"
+    },
+    {
+      "id": "129770ca-d260-4caf-ac9d-17f463b79eed",
+      "moduleId": "f598eef5-0502-40b5-a5ac-728d0665d4a9",
+      "title": "Intended Beneficiaries",
+      "sequenceOrder": 4,
+      "contentType": "quiz",
+      "contentRef": "{\"prompt\":\"Which group is identified as a beneficiary that can find suitable master weavers based on location, availability, and weaving interests?\",\"choices\":[\"Apprentices\",\"Program chairs\",\"Course instructors\"],\"correctIndex\":0}",
+      "durationMinutes": null,
+      "createdAt": "2026-10-03T06:51:50.032Z"
+    },
+    {
+      "id": "353a530e-dea4-48b0-8f2b-2fb24d32d9ca",
+      "moduleId": "c0cd9da2-4460-496e-8c1b-38a27f9c5716",
+      "title": "Project Scope",
+      "sequenceOrder": 1,
+      "contentType": "text",
+      "contentRef": "HirangLikha is proposed as an AI-based platform for the preservation, mentorship, and digital promotion of Filipino traditional weaving. Its scope includes master weaver and apprentice profiles, AI-based matching, mentorship progress tracking and session scheduling, AI-powered promotion tools, and a digital showcase and marketplace. The proposal states that the system supports SDG 4 – Quality Education and SDG 8 – Decent Work and Economic Growth.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-03T06:51:50.032Z"
+    },
+    {
+      "id": "5b3b5750-e142-4b30-82b5-3fbe3b9ea8f9",
+      "moduleId": "c0cd9da2-4460-496e-8c1b-38a27f9c5716",
+      "title": "Project Limitations",
+      "sequenceOrder": 2,
+      "contentType": "text",
+      "contentRef": "The system will focus on a selected range of Filipino traditional weaving practices and may not cover every tradition, technique, or community. AI-generated content and tags may be inaccurate. Some functions may depend on a user’s device, internet connection, and available technology. HirangLikha is intended to support mentorship and knowledge transmission, not replace direct instruction from master weavers.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-03T06:51:50.032Z"
+    },
+    {
+      "id": "855375c6-004c-4a3e-979e-ee1b87d26694",
+      "moduleId": "c0cd9da2-4460-496e-8c1b-38a27f9c5716",
+      "title": "Limitations Check",
+      "sequenceOrder": 3,
+      "contentType": "quiz",
+      "contentRef": "{\"prompt\":\"According to the proposal, what does HirangLikha not replace?\",\"choices\":[\"Direct cultural instruction from master weavers\",\"The need for user profiles\",\"The digital showcase\"],\"correctIndex\":0}",
+      "durationMinutes": null,
+      "createdAt": "2026-10-03T06:51:50.032Z"
+    },
+    {
+      "id": "c0c7ca06-a1ba-457f-acfc-5b93b3a64bf3",
+      "moduleId": "aa23ec63-cf9f-4e42-8e7e-9b502cd9884d",
+      "title": "Studies on Technology and Livelihood",
+      "sequenceOrder": 1,
+      "contentType": "text",
+      "contentRef": "The proposal describes Concepcion et al. (2023) as finding that CAD helped local handloom weavers reduce production time and costs, archive designs, increase demand for value-added products, and improve income. Milgram (2026) discussed how social enterprises and distribution networks can help textile producers access markets, strengthen producer-buyer relationships, and generate income while maintaining cultural value. Villagomez (2022) highlighted sustainable business practices, inclusive economic opportunities, and support for textile entrepreneurs.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-03T06:51:50.032Z"
+    },
+    {
+      "id": "1bf79228-0b43-4557-bf9c-203ba34ca3a0",
+      "moduleId": "aa23ec63-cf9f-4e42-8e7e-9b502cd9884d",
+      "title": "Studies on Marketing and Knowledge Transfer",
+      "sequenceOrder": 2,
+      "contentType": "text",
+      "contentRef": "The proposal reports that Cuyangoan (2026) found textile artisans in Mountain Province commonly rely on word-of-mouth, community relationships, kinship networks, and cultural activities for promotion. The study also identified limited accessibility, income uncertainty, digital exclusion, and lack of branding. Cacho et al. (2025) found that traditional weaving is a source of livelihood and cultural identity, while generational disinterest, migration, and modernization challenge the transfer of knowledge to younger generations.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-03T06:51:50.032Z"
+    },
+    {
+      "id": "cee7fff8-5ecc-4036-955f-48b9c5aaece4",
+      "moduleId": "aa23ec63-cf9f-4e42-8e7e-9b502cd9884d",
+      "title": "Development and Evaluation",
+      "sequenceOrder": 3,
+      "contentType": "text",
+      "contentRef": "The development plan begins with planning and requirements analysis, followed by system and database design, backend development, and user-interface and front-end development. The team will develop user profiles, matching, session scheduling, and progress tracking, along with AI matching and digital promotion features. The completed components will undergo system integration, testing, and evaluation of functionality, usability, AI-generated results, matching accuracy, marketplace features, and overall performance. After improvements, the system will proceed to deployment for controlled use and evaluation.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-03T06:51:50.032Z"
+    },
+    {
+      "id": "afdc4dcc-149b-4d9b-8e06-dd96f867a886",
+      "moduleId": "84fa3d7d-497c-4b63-b076-d6e4a4c9e559",
+      "title": "Challenges Facing Filipino Weaving",
+      "sequenceOrder": 1,
+      "contentType": "text",
+      "contentRef": "Traditional Filipino weaving communities may face difficulties preserving cultural knowledge and sustaining livelihoods. Older master weavers may have limited opportunities to pass on their skills, while young learners may struggle to find experienced teachers. Weavers can also have limited digital visibility due to low digital literacy, limited online promotion, poor product presentation, and a lack of accessible ways to share cultural stories.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-03T06:53:14.915Z"
+    },
+    {
+      "id": "5fc1aff2-1627-4cb7-914e-7e63986ae5b9",
+      "moduleId": "84fa3d7d-497c-4b63-b076-d6e4a4c9e559",
+      "title": "What HirangLikha Proposes",
+      "sequenceOrder": 2,
+      "contentType": "text",
+      "contentRef": "HirangLikha is an AI-based platform intended to connect master weavers, aspiring apprentices, and potential buyers. Master weavers can share their expertise, availability, and location through profiles. Apprentices can register their interests and preferred learning arrangements. AI-based matching is intended to connect apprentices with suitable weavers, while digital promotion tools help present woven products and their cultural stories.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-03T06:53:14.915Z"
+    },
+    {
+      "id": "67bb0583-fabe-4a90-9014-ffc3f634d158",
+      "moduleId": "84fa3d7d-497c-4b63-b076-d6e4a4c9e559",
+      "title": "Platform Purpose",
+      "sequenceOrder": 3,
+      "contentType": "quiz",
+      "contentRef": "{\"prompt\":\"Which group is HirangLikha intended to connect through AI-based matching?\",\"choices\":[\"Apprentices and suitable master weavers\",\"Buyers and university designers\",\"Textile producers and distribution networks\"],\"correctIndex\":0}",
+      "durationMinutes": null,
+      "createdAt": "2026-10-03T06:53:14.915Z"
+    },
+    {
+      "id": "9497519a-67a5-4ca9-bb55-97e59eb1f3f2",
+      "moduleId": "a26e7b71-e6f3-47fc-9369-fc25721849f1",
+      "title": "User Profiles",
+      "sequenceOrder": 1,
+      "contentType": "text",
+      "contentRef": "HirangLikha's master weaver and apprentice profiles are intended to identify information relevant to mentorship. Master weaver profiles include weaving expertise, location, and availability. Apprentice profiles include learning interests, location, and preferred learning arrangements.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-03T06:53:14.915Z"
+    },
+    {
+      "id": "5ece61bd-f72d-4217-9e64-c30a0eaf69cc",
+      "moduleId": "a26e7b71-e6f3-47fc-9369-fc25721849f1",
+      "title": "Mentorship Management",
+      "sequenceOrder": 2,
+      "contentType": "text",
+      "contentRef": "The platform is intended to include session scheduling and apprenticeship progress tracking. These features support mentorship activities by helping users arrange sessions and track learning milestones. HirangLikha supports mentorship and knowledge transmission; it does not replace direct cultural instruction from master weavers.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-03T06:53:14.915Z"
+    },
+    {
+      "id": "30ba99c0-1c9a-4e2d-b598-68d7d4fe4b5d",
+      "moduleId": "a26e7b71-e6f3-47fc-9369-fc25721849f1",
+      "title": "Matching Factors",
+      "sequenceOrder": 3,
+      "contentType": "quiz",
+      "contentRef": "{\"prompt\":\"Which factors are named for matching apprentices with master weavers?\",\"choices\":[\"Location, schedule, and weaving interests\",\"Product price, buyer reviews, and sales\",\"Photo quality, product descriptions, and motifs\"],\"correctIndex\":0}",
+      "durationMinutes": null,
+      "createdAt": "2026-10-03T06:53:14.915Z"
+    },
+    {
+      "id": "9a626ba3-d9f6-4d71-9482-9a6e684bc976",
+      "moduleId": "06b3eef6-0ef7-4504-a420-1dcffe84a7aa",
+      "title": "AI-Assisted Promotion Tools",
+      "sequenceOrder": 1,
+      "contentType": "text",
+      "contentRef": "HirangLikha's proposed promotion tools include AI-assisted product photo enhancement, product description generation, and pattern or motif tagging. These tools are intended to help weavers present their products digitally and share information about them.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-03T06:53:14.915Z"
+    },
+    {
+      "id": "b9032974-1675-4d9c-ae3f-0ace839a0684",
+      "moduleId": "06b3eef6-0ef7-4504-a420-1dcffe84a7aa",
+      "title": "Showcase and Marketplace",
+      "sequenceOrder": 2,
+      "contentType": "text",
+      "contentRef": "The digital showcase and marketplace are intended to let weavers display products, share cultural stories and techniques, and connect with potential buyers. Buyers and customers can access authentic Filipino woven products and learn about the stories, techniques, and motifs behind them.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-03T06:53:14.915Z"
+    },
+    {
+      "id": "d79cd884-8d06-4792-a752-5986fa053424",
+      "moduleId": "06b3eef6-0ef7-4504-a420-1dcffe84a7aa",
+      "title": "Limits of AI Promotion",
+      "sequenceOrder": 3,
+      "contentType": "quiz",
+      "contentRef": "{\"prompt\":\"What limitation does the project identify for AI-generated descriptions, photo enhancements, and motif tags?\",\"choices\":[\"They may contain errors or misrepresent cultural context\",\"They cannot be used to display woven products\",\"They replace instruction from master weavers\"],\"correctIndex\":0}",
+      "durationMinutes": null,
+      "createdAt": "2026-10-03T06:53:14.915Z"
+    },
+    {
+      "id": "5124b7f4-54d2-422a-8728-abb59e317ce7",
+      "moduleId": "9302b584-5c3f-43e2-be87-08bfaa4c1fe2",
+      "title": "Project Scope and Limitations",
+      "sequenceOrder": 1,
+      "contentType": "text",
+      "contentRef": "HirangLikha focuses on a selected range of Filipino traditional weaving practices and may not cover every tradition, technique, or community. Matching effectiveness depends on the accuracy and completeness of user information. Some features may depend on a user's device, internet connection, and available technology. The platform supports, but does not replace, direct cultural instruction from master weavers.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-03T06:53:14.915Z"
+    },
+    {
+      "id": "e5fe67b8-00fa-4f67-821b-2fd84acea6ac",
+      "moduleId": "9302b584-5c3f-43e2-be87-08bfaa4c1fe2",
+      "title": "Development Plan",
+      "sequenceOrder": 2,
+      "contentType": "text",
+      "contentRef": "The development plan includes planning and requirements analysis; system and database design; UI/UX and front-end work; mentorship and apprenticeship features; AI matching and digital promotion tools; system integration, testing, and evaluation; and deployment after necessary improvements. Evaluation is intended to assess functionality, usability, AI-generated results, matching accuracy, marketplace features, and overall system performance.",
+      "durationMinutes": null,
+      "createdAt": "2026-10-03T06:53:14.915Z"
+    },
+    {
+      "id": "7bb8c035-ccb3-421a-9dc0-97153bea58c0",
+      "moduleId": "9302b584-5c3f-43e2-be87-08bfaa4c1fe2",
+      "title": "Project Goals",
+      "sequenceOrder": 3,
+      "contentType": "quiz",
+      "contentRef": "{\"prompt\":\"Which Sustainable Development Goals does the project say it supports?\",\"choices\":[\"SDG 4 – Quality Education and SDG 8 – Decent Work and Economic Growth\",\"SDG 4 – Quality Education and SDG 12 – Responsible Consumption and Production\",\"SDG 8 – Decent Work and Economic Growth and SDG 13 – Climate Action\"],\"correctIndex\":0}",
+      "durationMinutes": null,
+      "createdAt": "2026-10-03T06:53:14.915Z"
+    }
+  ],
+  "enrollments": [
+    {
+      "id": "3638ae28-31d2-4154-a255-6d8a51fa93ae",
+      "studentId": "user-student-1",
+      "courseId": "course-1",
+      "status": "completed",
+      "enrolledAt": "2026-08-27T09:29:19.885Z",
+      "completedAt": "2026-08-27T09:41:51.925Z",
+      "createdAt": "2026-08-27T09:29:19.885Z",
+      "updatedAt": "2026-08-27T09:41:51.925Z"
+    },
+    {
+      "id": "d5273165-4944-4610-bbba-7c72bbf204c6",
+      "studentId": "user-student-1",
+      "courseId": "course-2",
+      "status": "completed",
+      "enrolledAt": "2026-09-22T08:19:26.263Z",
+      "completedAt": "2026-10-09T06:27:19.905Z",
+      "createdAt": "2026-09-22T08:19:26.263Z",
+      "updatedAt": "2026-10-09T06:27:19.905Z"
+    },
+    {
+      "id": "1f1a0ad4-7189-468f-8e61-3419604ce96a",
+      "studentId": "0e470805-8882-4dbe-bf11-a8a6b8d4cf73",
+      "courseId": "course-1",
+      "status": "active",
+      "enrolledAt": "2026-09-24T19:42:58.284Z",
+      "completedAt": null,
+      "createdAt": "2026-09-24T19:42:58.284Z",
+      "updatedAt": "2026-09-24T19:42:58.284Z"
+    },
+    {
+      "id": "f68b44d8-945e-4489-a7b4-4325d3749903",
+      "studentId": "user-student-1",
+      "courseId": "c7c1ac74-874c-4016-b374-017fd6841101",
+      "status": "active",
+      "enrolledAt": "2026-10-02T21:36:28.122Z",
+      "completedAt": null,
+      "createdAt": "2026-10-02T21:36:28.122Z",
+      "updatedAt": "2026-10-02T21:36:28.122Z"
+    },
+    {
+      "id": "42c4ffc1-9ee2-4364-9c5c-c93cc6bc7743",
+      "studentId": "2d148d77-8d7b-48d1-9ea6-259229fff327",
+      "courseId": "course-1",
+      "status": "completed",
+      "enrolledAt": "2026-10-02T22:06:57.384Z",
+      "completedAt": "2026-10-02T22:07:13.918Z",
+      "createdAt": "2026-10-02T22:06:57.384Z",
+      "updatedAt": "2026-10-02T22:07:13.918Z"
+    },
+    {
+      "id": "1943b627-2ea3-4809-96fe-9c81534e96ce",
+      "studentId": "c5878637-657c-4606-a411-215035bfe0c9",
+      "courseId": "c7c1ac74-874c-4016-b374-017fd6841101",
+      "status": "active",
+      "enrolledAt": "2026-10-03T06:44:24.817Z",
+      "completedAt": null,
+      "createdAt": "2026-10-03T06:44:24.817Z",
+      "updatedAt": "2026-10-03T06:44:24.817Z"
+    },
+    {
+      "id": "f82a3955-5483-4c3b-bafd-e0b505201660",
+      "studentId": "user-student-1",
+      "courseId": "d2f286dd-42a2-44d5-abc7-d3dad3fa8768",
+      "status": "completed",
+      "enrolledAt": "2026-10-03T06:55:51.521Z",
+      "completedAt": "2026-10-03T06:56:55.625Z",
+      "createdAt": "2026-10-03T06:55:51.521Z",
+      "updatedAt": "2026-10-03T06:56:55.625Z"
+    },
+    {
+      "id": "a61d1781-1fcf-4a68-9f0b-e531762de066",
+      "studentId": "user-student-1",
+      "courseId": "1d1ed095-6716-40e5-a853-6e8751e19bb4",
+      "status": "active",
+      "enrolledAt": "2026-10-09T06:27:30.749Z",
+      "completedAt": null,
+      "createdAt": "2026-10-09T06:27:30.749Z",
+      "updatedAt": "2026-10-09T06:27:30.749Z"
+    }
+  ],
+  "lmsAccounts": [
+    {
+      "id": "be91edbc-5a74-4af8-8d98-81747f83fe68",
+      "enrollmentId": "3638ae28-31d2-4154-a255-6d8a51fa93ae",
+      "provisionedAt": "2026-08-27T09:29:19.885Z",
+      "syncStatus": "provisioned",
+      "externalLmsId": "lms-3638ae28",
+      "createdAt": "2026-08-27T09:29:19.885Z",
+      "updatedAt": "2026-08-27T09:29:19.885Z"
+    },
+    {
+      "id": "17e47f9c-c08a-47ae-bcf9-25991740ec46",
+      "enrollmentId": "d5273165-4944-4610-bbba-7c72bbf204c6",
+      "provisionedAt": "2026-09-22T08:19:26.263Z",
+      "syncStatus": "provisioned",
+      "externalLmsId": "lms-d5273165",
+      "createdAt": "2026-09-22T08:19:26.263Z",
+      "updatedAt": "2026-09-22T08:19:26.263Z"
+    },
+    {
+      "id": "b3b78127-d279-4bf5-84e1-cf58383406f1",
+      "enrollmentId": "1f1a0ad4-7189-468f-8e61-3419604ce96a",
+      "provisionedAt": "2026-09-24T19:42:58.284Z",
+      "syncStatus": "provisioned",
+      "externalLmsId": "lms-1f1a0ad4",
+      "createdAt": "2026-09-24T19:42:58.284Z",
+      "updatedAt": "2026-09-24T19:42:58.284Z"
+    },
+    {
+      "id": "232d552f-fa78-4fc7-84ff-66d927867b7d",
+      "enrollmentId": "f68b44d8-945e-4489-a7b4-4325d3749903",
+      "provisionedAt": "2026-10-02T21:36:28.122Z",
+      "syncStatus": "provisioned",
+      "externalLmsId": "lms-f68b44d8",
+      "createdAt": "2026-10-02T21:36:28.122Z",
+      "updatedAt": "2026-10-02T21:36:28.122Z"
+    },
+    {
+      "id": "d8483176-cd12-4087-9f7d-c4e6e900203e",
+      "enrollmentId": "42c4ffc1-9ee2-4364-9c5c-c93cc6bc7743",
+      "provisionedAt": "2026-10-02T22:06:57.384Z",
+      "syncStatus": "provisioned",
+      "externalLmsId": "lms-42c4ffc1",
+      "createdAt": "2026-10-02T22:06:57.384Z",
+      "updatedAt": "2026-10-02T22:06:57.384Z"
+    },
+    {
+      "id": "f67cc726-a098-4fc0-96e4-982905359433",
+      "enrollmentId": "1943b627-2ea3-4809-96fe-9c81534e96ce",
+      "provisionedAt": "2026-10-03T06:44:24.817Z",
+      "syncStatus": "provisioned",
+      "externalLmsId": "lms-1943b627",
+      "createdAt": "2026-10-03T06:44:24.817Z",
+      "updatedAt": "2026-10-03T06:44:24.817Z"
+    },
+    {
+      "id": "8bd5288e-275b-497f-b266-711ada27d145",
+      "enrollmentId": "f82a3955-5483-4c3b-bafd-e0b505201660",
+      "provisionedAt": "2026-10-03T06:55:51.521Z",
+      "syncStatus": "provisioned",
+      "externalLmsId": "lms-f82a3955",
+      "createdAt": "2026-10-03T06:55:51.521Z",
+      "updatedAt": "2026-10-03T06:55:51.521Z"
+    },
+    {
+      "id": "85517203-2e51-4b3f-8ff9-df285e9b63f0",
+      "enrollmentId": "a61d1781-1fcf-4a68-9f0b-e531762de066",
+      "provisionedAt": "2026-10-09T06:27:30.749Z",
+      "syncStatus": "provisioned",
+      "externalLmsId": "lms-a61d1781",
+      "createdAt": "2026-10-09T06:27:30.749Z",
+      "updatedAt": "2026-10-09T06:27:30.749Z"
+    }
+  ],
+  "lessonProgress": [
+    {
+      "id": "1a62bf5c-f147-4be0-b935-2e5369d659c5",
+      "enrollmentId": "3638ae28-31d2-4154-a255-6d8a51fa93ae",
+      "lessonId": "lesson-1",
+      "status": "completed",
+      "completedAt": "2026-08-27T09:40:36.002Z",
+      "score": null,
+      "createdAt": "2026-08-27T09:40:33.871Z",
+      "updatedAt": "2026-08-27T09:40:36.002Z"
+    },
+    {
+      "id": "0ce41321-2c7e-4ece-b65d-b91bf9073f33",
+      "enrollmentId": "3638ae28-31d2-4154-a255-6d8a51fa93ae",
+      "lessonId": "lesson-2",
+      "status": "completed",
+      "completedAt": "2026-08-27T09:41:51.925Z",
+      "score": null,
+      "createdAt": "2026-08-27T09:41:00.026Z",
+      "updatedAt": "2026-08-27T09:41:51.925Z"
+    },
+    {
+      "id": "c956b0dc-7d67-429a-916c-f4ad86f1bc88",
+      "enrollmentId": "d5273165-4944-4610-bbba-7c72bbf204c6",
+      "lessonId": "a1937b14-33f8-476d-9928-3ebd1eda453a",
+      "status": "completed",
+      "completedAt": "2026-10-02T21:36:05.700Z",
+      "score": null,
+      "createdAt": "2026-09-22T08:21:10.508Z",
+      "updatedAt": "2026-10-02T21:36:05.700Z"
+    },
+    {
+      "id": "3daa180c-b7c7-4990-9edc-5bd7acd919e4",
+      "enrollmentId": "1f1a0ad4-7189-468f-8e61-3419604ce96a",
+      "lessonId": "b156eec8-c3cb-4d98-bd3c-6a4989b7328f",
+      "status": "in_progress",
+      "completedAt": null,
+      "score": null,
+      "createdAt": "2026-09-24T19:43:05.662Z",
+      "updatedAt": "2026-09-24T19:43:05.662Z"
+    },
+    {
+      "id": "239aee28-9e08-4370-9d97-f1223b9b5fac",
+      "enrollmentId": "1f1a0ad4-7189-468f-8e61-3419604ce96a",
+      "lessonId": "lesson-2",
+      "status": "in_progress",
+      "completedAt": null,
+      "score": null,
+      "createdAt": "2026-09-24T19:43:07.961Z",
+      "updatedAt": "2026-09-24T19:43:07.961Z"
+    },
+    {
+      "id": "1b2c0143-1f60-462e-ac14-4eec8e500d83",
+      "enrollmentId": "1f1a0ad4-7189-468f-8e61-3419604ce96a",
+      "lessonId": "lesson-1",
+      "status": "in_progress",
+      "completedAt": null,
+      "score": null,
+      "createdAt": "2026-09-24T19:43:09.234Z",
+      "updatedAt": "2026-09-24T19:43:09.234Z"
+    },
+    {
+      "id": "708f6df7-85e9-41b0-b7c4-b4e8cd724849",
+      "enrollmentId": "3638ae28-31d2-4154-a255-6d8a51fa93ae",
+      "lessonId": "b156eec8-c3cb-4d98-bd3c-6a4989b7328f",
+      "status": "in_progress",
+      "completedAt": null,
+      "score": null,
+      "createdAt": "2026-10-02T20:00:23.722Z",
+      "updatedAt": "2026-10-02T20:00:23.722Z"
+    },
+    {
+      "id": "8036435d-f50f-4acc-8d34-b06e5096b88c",
+      "enrollmentId": "d5273165-4944-4610-bbba-7c72bbf204c6",
+      "lessonId": "1902d8cf-80ea-42bb-a1d5-de8cf1895e8e",
+      "status": "completed",
+      "completedAt": "2026-10-09T06:27:19.905Z",
+      "score": 100,
+      "createdAt": "2026-10-02T21:36:05.906Z",
+      "updatedAt": "2026-10-09T06:27:19.905Z"
+    },
+    {
+      "id": "aca432d7-68a3-46e4-9630-ca2fccd8daca",
+      "enrollmentId": "f68b44d8-945e-4489-a7b4-4325d3749903",
+      "lessonId": "4c2c47d6-be11-4e95-83bd-412bfe0f6e6c",
+      "status": "completed",
+      "completedAt": "2026-10-02T21:36:37.837Z",
+      "score": null,
+      "createdAt": "2026-10-02T21:36:33.692Z",
+      "updatedAt": "2026-10-02T21:36:37.837Z"
+    },
+    {
+      "id": "9cf9d042-7eef-4e85-a310-fffe4f0e6934",
+      "enrollmentId": "f68b44d8-945e-4489-a7b4-4325d3749903",
+      "lessonId": "8c5bd3ee-246b-4386-b362-17cbc592bc54",
+      "status": "completed",
+      "completedAt": "2026-10-02T21:36:40.894Z",
+      "score": null,
+      "createdAt": "2026-10-02T21:36:38.035Z",
+      "updatedAt": "2026-10-02T21:36:40.894Z"
+    },
+    {
+      "id": "cc33cd37-0f29-4c5f-8ca5-98cbae1c6de1",
+      "enrollmentId": "f68b44d8-945e-4489-a7b4-4325d3749903",
+      "lessonId": "62cf569c-df01-4e86-ab7d-a91d93f6f5c5",
+      "status": "completed",
+      "completedAt": "2026-10-02T21:36:48.213Z",
+      "score": 100,
+      "createdAt": "2026-10-02T21:36:41.090Z",
+      "updatedAt": "2026-10-02T21:36:48.213Z"
+    },
+    {
+      "id": "5fb89588-2726-4978-866e-d6299b1de91f",
+      "enrollmentId": "f68b44d8-945e-4489-a7b4-4325d3749903",
+      "lessonId": "2546d65d-332e-4bdc-bcf4-6fcbe15373c9",
+      "status": "in_progress",
+      "completedAt": null,
+      "score": null,
+      "createdAt": "2026-10-02T21:36:48.423Z",
+      "updatedAt": "2026-10-02T21:36:48.423Z"
+    },
+    {
+      "id": "52c2c8e1-ffba-477f-884c-a42c5cc4e16c",
+      "enrollmentId": "f68b44d8-945e-4489-a7b4-4325d3749903",
+      "lessonId": "43beaf0b-6a6e-421e-84c5-ddd1e648eb63",
+      "status": "completed",
+      "completedAt": "2026-10-02T21:45:59.933Z",
+      "score": 100,
+      "createdAt": "2026-10-02T21:45:52.290Z",
+      "updatedAt": "2026-10-02T21:45:59.933Z"
+    },
+    {
+      "id": "ffb2d375-447e-46dc-a5b4-7ee2856020e8",
+      "enrollmentId": "f68b44d8-945e-4489-a7b4-4325d3749903",
+      "lessonId": "a37ee4af-0933-4893-b5c7-030a964543fa",
+      "status": "in_progress",
+      "completedAt": null,
+      "score": null,
+      "createdAt": "2026-10-02T21:46:00.140Z",
+      "updatedAt": "2026-10-02T21:46:00.140Z"
+    },
+    {
+      "id": "af234176-9640-4693-9d5d-d6c20603df7a",
+      "enrollmentId": "f68b44d8-945e-4489-a7b4-4325d3749903",
+      "lessonId": "63bf514c-9408-4a46-afae-e0df0b5383ad",
+      "status": "in_progress",
+      "completedAt": null,
+      "score": null,
+      "createdAt": "2026-10-02T21:46:03.699Z",
+      "updatedAt": "2026-10-02T21:46:03.699Z"
+    },
+    {
+      "id": "89f7588f-ec66-4500-bbd4-21c452ed91fa",
+      "enrollmentId": "f68b44d8-945e-4489-a7b4-4325d3749903",
+      "lessonId": "94416ce8-ccb2-4538-9f26-47a52b645d9c",
+      "status": "in_progress",
+      "completedAt": null,
+      "score": null,
+      "createdAt": "2026-10-02T21:46:04.803Z",
+      "updatedAt": "2026-10-02T21:46:04.803Z"
+    },
+    {
+      "id": "b82cdbc1-c239-4068-9da2-8768ca88b974",
+      "enrollmentId": "f68b44d8-945e-4489-a7b4-4325d3749903",
+      "lessonId": "111d77d6-28b3-4a1f-973c-d81974e52fd8",
+      "status": "in_progress",
+      "completedAt": null,
+      "score": null,
+      "createdAt": "2026-10-02T21:46:18.280Z",
+      "updatedAt": "2026-10-02T21:46:18.280Z"
+    },
+    {
+      "id": "d7062760-63d1-4a9a-bd07-591be670f320",
+      "enrollmentId": "f68b44d8-945e-4489-a7b4-4325d3749903",
+      "lessonId": "3e006495-8d29-482d-8031-501ebc639104",
+      "status": "in_progress",
+      "completedAt": null,
+      "score": null,
+      "createdAt": "2026-10-02T21:46:28.865Z",
+      "updatedAt": "2026-10-02T21:46:28.865Z"
+    },
+    {
+      "id": "e982e143-cbd2-4de5-962b-e09c210ac180",
+      "enrollmentId": "f68b44d8-945e-4489-a7b4-4325d3749903",
+      "lessonId": "a945a0a7-ea6a-4724-9352-3a3d9966670c",
+      "status": "in_progress",
+      "completedAt": null,
+      "score": null,
+      "createdAt": "2026-10-02T21:46:31.628Z",
+      "updatedAt": "2026-10-02T21:46:31.628Z"
+    },
+    {
+      "id": "3d284c23-68c3-471b-a277-bce098f06c8c",
+      "enrollmentId": "f68b44d8-945e-4489-a7b4-4325d3749903",
+      "lessonId": "3099b55d-0081-4bf0-a81e-e8a9badb2b32",
+      "status": "in_progress",
+      "completedAt": null,
+      "score": null,
+      "createdAt": "2026-10-02T21:46:34.299Z",
+      "updatedAt": "2026-10-02T21:46:34.299Z"
+    },
+    {
+      "id": "fa948c41-9fdb-40b2-996d-b56b4b71701e",
+      "enrollmentId": "42c4ffc1-9ee2-4364-9c5c-c93cc6bc7743",
+      "lessonId": "lesson-2",
+      "status": "completed",
+      "completedAt": "2026-10-02T22:07:03.978Z",
+      "score": null,
+      "createdAt": "2026-10-02T22:07:00.516Z",
+      "updatedAt": "2026-10-02T22:07:03.978Z"
+    },
+    {
+      "id": "378fc616-81f0-44a9-87c9-aaa38ccf7576",
+      "enrollmentId": "42c4ffc1-9ee2-4364-9c5c-c93cc6bc7743",
+      "lessonId": "lesson-1",
+      "status": "completed",
+      "completedAt": "2026-10-02T22:07:11.541Z",
+      "score": null,
+      "createdAt": "2026-10-02T22:07:04.200Z",
+      "updatedAt": "2026-10-02T22:07:11.541Z"
+    },
+    {
+      "id": "6b24b484-f87b-4c4c-862d-2a3294cd925c",
+      "enrollmentId": "42c4ffc1-9ee2-4364-9c5c-c93cc6bc7743",
+      "lessonId": "b156eec8-c3cb-4d98-bd3c-6a4989b7328f",
+      "status": "completed",
+      "completedAt": "2026-10-02T22:07:13.918Z",
+      "score": null,
+      "createdAt": "2026-10-02T22:07:11.754Z",
+      "updatedAt": "2026-10-02T22:07:13.918Z"
+    },
+    {
+      "id": "e1a623a8-d6b0-4f47-b7de-038cbf16b598",
+      "enrollmentId": "f82a3955-5483-4c3b-bafd-e0b505201660",
+      "lessonId": "8c04806c-ef05-418e-9a41-2be1e2520bdd",
+      "status": "completed",
+      "completedAt": "2026-10-03T06:56:03.164Z",
+      "score": null,
+      "createdAt": "2026-10-03T06:55:57.056Z",
+      "updatedAt": "2026-10-03T06:56:03.164Z"
+    },
+    {
+      "id": "442feda4-d6fd-4de3-9306-50a53478c3a7",
+      "enrollmentId": "f82a3955-5483-4c3b-bafd-e0b505201660",
+      "lessonId": "bfc9f38f-2f21-4bf0-ba61-4584d08dc03e",
+      "status": "completed",
+      "completedAt": "2026-10-03T06:56:05.876Z",
+      "score": null,
+      "createdAt": "2026-10-03T06:56:03.441Z",
+      "updatedAt": "2026-10-03T06:56:05.876Z"
+    },
+    {
+      "id": "de6b2ac5-eb1a-4d47-826c-43967ada8ae6",
+      "enrollmentId": "f82a3955-5483-4c3b-bafd-e0b505201660",
+      "lessonId": "fac80d58-3ea1-4100-9356-683a5460f87e",
+      "status": "completed",
+      "completedAt": "2026-10-03T06:56:17.541Z",
+      "score": 100,
+      "createdAt": "2026-10-03T06:56:06.172Z",
+      "updatedAt": "2026-10-03T06:56:17.541Z"
+    },
+    {
+      "id": "9cb99a0f-ce14-4f2f-8db8-0b81da9d9cad",
+      "enrollmentId": "f82a3955-5483-4c3b-bafd-e0b505201660",
+      "lessonId": "72c4e7a1-e623-435d-9b43-2610a0569a4b",
+      "status": "completed",
+      "completedAt": "2026-10-03T06:56:20.706Z",
+      "score": null,
+      "createdAt": "2026-10-03T06:56:17.890Z",
+      "updatedAt": "2026-10-03T06:56:20.706Z"
+    },
+    {
+      "id": "1f5392dd-67c4-4b4d-bfec-31dc57259048",
+      "enrollmentId": "f82a3955-5483-4c3b-bafd-e0b505201660",
+      "lessonId": "c4bf9bad-5d8c-4cbc-a934-01a7d02452d6",
+      "status": "completed",
+      "completedAt": "2026-10-03T06:56:22.930Z",
+      "score": null,
+      "createdAt": "2026-10-03T06:56:21.059Z",
+      "updatedAt": "2026-10-03T06:56:22.930Z"
+    },
+    {
+      "id": "d8f1aec4-5cd6-43c7-98a8-78b0346a74f9",
+      "enrollmentId": "f82a3955-5483-4c3b-bafd-e0b505201660",
+      "lessonId": "bc47ce9b-8c2d-4e53-8e66-5d49ff2d7c49",
+      "status": "completed",
+      "completedAt": "2026-10-03T06:56:24.741Z",
+      "score": null,
+      "createdAt": "2026-10-03T06:56:23.284Z",
+      "updatedAt": "2026-10-03T06:56:24.741Z"
+    },
+    {
+      "id": "c094ce84-df3b-4670-a266-cc9c08e6f0ce",
+      "enrollmentId": "f82a3955-5483-4c3b-bafd-e0b505201660",
+      "lessonId": "129770ca-d260-4caf-ac9d-17f463b79eed",
+      "status": "completed",
+      "completedAt": "2026-10-03T06:56:38.021Z",
+      "score": 100,
+      "createdAt": "2026-10-03T06:56:25.188Z",
+      "updatedAt": "2026-10-03T06:56:38.021Z"
+    },
+    {
+      "id": "477365df-3d7e-4087-a9e9-a740bea94764",
+      "enrollmentId": "f82a3955-5483-4c3b-bafd-e0b505201660",
+      "lessonId": "353a530e-dea4-48b0-8f2b-2fb24d32d9ca",
+      "status": "completed",
+      "completedAt": "2026-10-03T06:56:40.100Z",
+      "score": null,
+      "createdAt": "2026-10-03T06:56:38.334Z",
+      "updatedAt": "2026-10-03T06:56:40.100Z"
+    },
+    {
+      "id": "29000301-08ec-4ce2-9e84-c5e39d229663",
+      "enrollmentId": "f82a3955-5483-4c3b-bafd-e0b505201660",
+      "lessonId": "5b3b5750-e142-4b30-82b5-3fbe3b9ea8f9",
+      "status": "completed",
+      "completedAt": "2026-10-03T06:56:41.878Z",
+      "score": null,
+      "createdAt": "2026-10-03T06:56:40.436Z",
+      "updatedAt": "2026-10-03T06:56:41.878Z"
+    },
+    {
+      "id": "009b7dde-aee2-47cc-8a6d-bf6f126ef184",
+      "enrollmentId": "f82a3955-5483-4c3b-bafd-e0b505201660",
+      "lessonId": "855375c6-004c-4a3e-979e-ee1b87d26694",
+      "status": "completed",
+      "completedAt": "2026-10-03T06:56:48.806Z",
+      "score": 100,
+      "createdAt": "2026-10-03T06:56:42.285Z",
+      "updatedAt": "2026-10-03T06:56:48.806Z"
+    },
+    {
+      "id": "e38ad0e7-c0e6-4e1a-a31d-9705c7c8c13f",
+      "enrollmentId": "f82a3955-5483-4c3b-bafd-e0b505201660",
+      "lessonId": "c0c7ca06-a1ba-457f-acfc-5b93b3a64bf3",
+      "status": "completed",
+      "completedAt": "2026-10-03T06:56:51.487Z",
+      "score": null,
+      "createdAt": "2026-10-03T06:56:49.132Z",
+      "updatedAt": "2026-10-03T06:56:51.487Z"
+    },
+    {
+      "id": "3e450bc8-fa4a-4ae2-8efc-c9752126b4b2",
+      "enrollmentId": "f82a3955-5483-4c3b-bafd-e0b505201660",
+      "lessonId": "1bf79228-0b43-4557-bf9c-203ba34ca3a0",
+      "status": "completed",
+      "completedAt": "2026-10-03T06:56:53.830Z",
+      "score": null,
+      "createdAt": "2026-10-03T06:56:51.795Z",
+      "updatedAt": "2026-10-03T06:56:53.830Z"
+    },
+    {
+      "id": "4989a2cc-6b40-4897-9748-369d45e2cb74",
+      "enrollmentId": "f82a3955-5483-4c3b-bafd-e0b505201660",
+      "lessonId": "cee7fff8-5ecc-4036-955f-48b9c5aaece4",
+      "status": "completed",
+      "completedAt": "2026-10-03T06:56:55.625Z",
+      "score": null,
+      "createdAt": "2026-10-03T06:56:54.202Z",
+      "updatedAt": "2026-10-03T06:56:55.625Z"
+    }
+  ],
+  "certificates": [
+    {
+      "id": "8022718c-0492-463f-a04f-1b8ddba1c076",
+      "enrollmentId": "3638ae28-31d2-4154-a255-6d8a51fa93ae",
+      "referenceNumber": "SSA-2026-U9FJQD",
+      "issuedAt": "2026-08-27T09:41:51.925Z",
+      "fileUrl": "/api/certificates/SSA-2026-U9FJQD",
+      "verificationStatus": "valid",
+      "createdAt": "2026-08-27T09:50:35.112Z"
+    },
+    {
+      "id": "d783328c-05d6-4df9-94e1-add14c4dd238",
+      "enrollmentId": "42c4ffc1-9ee2-4364-9c5c-c93cc6bc7743",
+      "referenceNumber": "SSA-2026-H6G4DF",
+      "issuedAt": "2026-10-02T22:07:13.918Z",
+      "fileUrl": "/api/certificates/SSA-2026-H6G4DF",
+      "verificationStatus": "valid",
+      "createdAt": "2026-10-02T22:07:13.918Z"
+    },
+    {
+      "id": "3d74cd54-f4cd-4c49-ba58-3957cd2b9755",
+      "enrollmentId": "f82a3955-5483-4c3b-bafd-e0b505201660",
+      "referenceNumber": "SSA-2026-CVS7WZ",
+      "issuedAt": "2026-10-03T06:56:55.625Z",
+      "fileUrl": "/api/certificates/SSA-2026-CVS7WZ",
+      "verificationStatus": "valid",
+      "createdAt": "2026-10-03T06:56:55.625Z"
+    },
+    {
+      "id": "f780e37d-1956-4389-8a27-0f0199bf7a1f",
+      "enrollmentId": "d5273165-4944-4610-bbba-7c72bbf204c6",
+      "referenceNumber": "SSA-2026-LEY8HS",
+      "issuedAt": "2026-10-09T06:27:19.905Z",
+      "fileUrl": "/api/certificates/SSA-2026-LEY8HS",
+      "verificationStatus": "valid",
+      "createdAt": "2026-10-09T06:27:19.905Z"
+    }
+  ],
+  "integrationEvents": [
+    {
+      "id": "event-confirmed-1",
+      "enrollmentId": "3638ae28-31d2-4154-a255-6d8a51fa93ae",
+      "eventType": "enrollment.confirmed",
+      "payload": {
+        "courseId": "course-1",
+        "studentId": "user-student-1",
+        "lmsAccountId": "be91edbc-5a74-4af8-8d98-81747f83fe68",
+        "syncStatus": "provisioned"
+      },
+      "status": "succeeded",
+      "retryCount": 0,
+      "lastError": null,
+      "createdAt": "2026-08-27T09:29:19.885Z",
+      "processedAt": "2026-08-27T09:29:19.885Z"
+    },
+    {
+      "id": "event-completed-1",
+      "enrollmentId": "3638ae28-31d2-4154-a255-6d8a51fa93ae",
+      "eventType": "enrollment.completed",
+      "payload": {
+        "courseId": "course-1",
+        "studentId": "user-student-1",
+        "certificateId": "8022718c-0492-463f-a04f-1b8ddba1c076",
+        "referenceNumber": "SSA-2026-U9FJQD"
+      },
+      "status": "succeeded",
+      "retryCount": 0,
+      "lastError": null,
+      "createdAt": "2026-08-27T09:41:51.925Z",
+      "processedAt": "2026-08-27T09:41:51.925Z"
+    },
+    {
+      "id": "1ffc8b3e-e6d1-4384-a29e-f5ba39912269",
+      "enrollmentId": "d5273165-4944-4610-bbba-7c72bbf204c6",
+      "eventType": "enrollment.confirmed",
+      "payload": {
+        "courseId": "course-2",
+        "studentId": "user-student-1",
+        "lmsAccountId": "17e47f9c-c08a-47ae-bcf9-25991740ec46",
+        "syncStatus": "provisioned"
+      },
+      "status": "succeeded",
+      "retryCount": 0,
+      "lastError": null,
+      "createdAt": "2026-09-22T08:19:26.263Z",
+      "processedAt": "2026-09-22T08:19:26.263Z"
+    },
+    {
+      "id": "abae0d90-9e80-4fb4-8a7a-544793d5573e",
+      "enrollmentId": "1f1a0ad4-7189-468f-8e61-3419604ce96a",
+      "eventType": "enrollment.confirmed",
+      "payload": {
+        "courseId": "course-1",
+        "studentId": "0e470805-8882-4dbe-bf11-a8a6b8d4cf73",
+        "lmsAccountId": "b3b78127-d279-4bf5-84e1-cf58383406f1",
+        "syncStatus": "provisioned"
+      },
+      "status": "succeeded",
+      "retryCount": 0,
+      "lastError": null,
+      "createdAt": "2026-09-24T19:42:58.284Z",
+      "processedAt": "2026-09-24T19:42:58.284Z"
+    },
+    {
+      "id": "fa24096e-bd65-47b5-a32c-025d56ab050e",
+      "enrollmentId": "f68b44d8-945e-4489-a7b4-4325d3749903",
+      "eventType": "enrollment.confirmed",
+      "payload": {
+        "courseId": "c7c1ac74-874c-4016-b374-017fd6841101",
+        "studentId": "user-student-1",
+        "lmsAccountId": "232d552f-fa78-4fc7-84ff-66d927867b7d",
+        "syncStatus": "provisioned"
+      },
+      "status": "succeeded",
+      "retryCount": 0,
+      "lastError": null,
+      "createdAt": "2026-10-02T21:36:28.122Z",
+      "processedAt": "2026-10-02T21:36:28.122Z"
+    },
+    {
+      "id": "1e288152-8b43-4c6e-8966-7d97faf72e9e",
+      "enrollmentId": "42c4ffc1-9ee2-4364-9c5c-c93cc6bc7743",
+      "eventType": "enrollment.confirmed",
+      "payload": {
+        "courseId": "course-1",
+        "studentId": "2d148d77-8d7b-48d1-9ea6-259229fff327",
+        "lmsAccountId": "d8483176-cd12-4087-9f7d-c4e6e900203e",
+        "syncStatus": "provisioned"
+      },
+      "status": "succeeded",
+      "retryCount": 0,
+      "lastError": null,
+      "createdAt": "2026-10-02T22:06:57.384Z",
+      "processedAt": "2026-10-02T22:06:57.384Z"
+    },
+    {
+      "id": "cd98c1a8-6ce0-4cbd-88d0-bdc24aaeec53",
+      "enrollmentId": "42c4ffc1-9ee2-4364-9c5c-c93cc6bc7743",
+      "eventType": "enrollment.completed",
+      "payload": {
+        "courseId": "course-1",
+        "studentId": "2d148d77-8d7b-48d1-9ea6-259229fff327",
+        "certificateId": "d783328c-05d6-4df9-94e1-add14c4dd238",
+        "referenceNumber": "SSA-2026-H6G4DF"
+      },
+      "status": "succeeded",
+      "retryCount": 0,
+      "lastError": null,
+      "createdAt": "2026-10-02T22:07:13.918Z",
+      "processedAt": "2026-10-02T22:07:13.918Z"
+    },
+    {
+      "id": "a73a2ebf-91fb-410e-8ea5-459d410b636d",
+      "enrollmentId": "1943b627-2ea3-4809-96fe-9c81534e96ce",
+      "eventType": "enrollment.confirmed",
+      "payload": {
+        "courseId": "c7c1ac74-874c-4016-b374-017fd6841101",
+        "studentId": "c5878637-657c-4606-a411-215035bfe0c9",
+        "lmsAccountId": "f67cc726-a098-4fc0-96e4-982905359433",
+        "syncStatus": "provisioned"
+      },
+      "status": "succeeded",
+      "retryCount": 0,
+      "lastError": null,
+      "createdAt": "2026-10-03T06:44:24.817Z",
+      "processedAt": "2026-10-03T06:44:24.817Z"
+    },
+    {
+      "id": "0ba05af2-d51b-4822-85f5-953abc2e7273",
+      "enrollmentId": "f82a3955-5483-4c3b-bafd-e0b505201660",
+      "eventType": "enrollment.confirmed",
+      "payload": {
+        "courseId": "d2f286dd-42a2-44d5-abc7-d3dad3fa8768",
+        "studentId": "user-student-1",
+        "lmsAccountId": "8bd5288e-275b-497f-b266-711ada27d145",
+        "syncStatus": "provisioned"
+      },
+      "status": "succeeded",
+      "retryCount": 0,
+      "lastError": null,
+      "createdAt": "2026-10-03T06:55:51.521Z",
+      "processedAt": "2026-10-03T06:55:51.521Z"
+    },
+    {
+      "id": "eda59443-c974-4179-b012-270f015cabb4",
+      "enrollmentId": "f82a3955-5483-4c3b-bafd-e0b505201660",
+      "eventType": "enrollment.completed",
+      "payload": {
+        "courseId": "d2f286dd-42a2-44d5-abc7-d3dad3fa8768",
+        "studentId": "user-student-1",
+        "certificateId": "3d74cd54-f4cd-4c49-ba58-3957cd2b9755",
+        "referenceNumber": "SSA-2026-CVS7WZ"
+      },
+      "status": "succeeded",
+      "retryCount": 0,
+      "lastError": null,
+      "createdAt": "2026-10-03T06:56:55.625Z",
+      "processedAt": "2026-10-03T06:56:55.625Z"
+    },
+    {
+      "id": "aaab9626-3689-4015-a551-e78989f733b2",
+      "enrollmentId": "d5273165-4944-4610-bbba-7c72bbf204c6",
+      "eventType": "enrollment.completed",
+      "payload": {
+        "courseId": "course-2",
+        "studentId": "user-student-1",
+        "certificateId": "f780e37d-1956-4389-8a27-0f0199bf7a1f",
+        "referenceNumber": "SSA-2026-LEY8HS"
+      },
+      "status": "succeeded",
+      "retryCount": 0,
+      "lastError": null,
+      "createdAt": "2026-10-09T06:27:19.905Z",
+      "processedAt": "2026-10-09T06:27:19.905Z"
+    },
+    {
+      "id": "3cc5a0a1-ae69-4512-9eea-7d726811c129",
+      "enrollmentId": "a61d1781-1fcf-4a68-9f0b-e531762de066",
+      "eventType": "enrollment.confirmed",
+      "payload": {
+        "courseId": "1d1ed095-6716-40e5-a853-6e8751e19bb4",
+        "studentId": "user-student-1",
+        "lmsAccountId": "85517203-2e51-4b3f-8ff9-df285e9b63f0",
+        "syncStatus": "provisioned"
+      },
+      "status": "succeeded",
+      "retryCount": 0,
+      "lastError": null,
+      "createdAt": "2026-10-09T06:27:30.749Z",
+      "processedAt": "2026-10-09T06:27:30.749Z"
+    }
+  ],
+  "aiConversations": [
+    {
+      "id": "a4758730-d5f4-42a3-b726-463246309ce4",
+      "studentId": "0e470805-8882-4dbe-bf11-a8a6b8d4cf73",
+      "enrollmentId": "1f1a0ad4-7189-468f-8e61-3419604ce96a",
+      "startedAt": "2026-09-24T19:52:08.880Z",
+      "endedAt": null,
+      "contextSnapshot": {
+        "courseId": "course-1",
+        "courseTitle": "Intro to Web Development",
+        "enrollmentStatus": "active",
+        "completed": 0,
+        "total": 3,
+        "percent": 0,
+        "nextLessonTitle": "Your First HTML Page"
+      }
+    },
+    {
+      "id": "9081e900-20af-41c9-b088-2178796fb223",
+      "studentId": "user-student-1",
+      "enrollmentId": "3638ae28-31d2-4154-a255-6d8a51fa93ae",
+      "startedAt": "2026-10-02T19:40:40.011Z",
+      "endedAt": null,
+      "contextSnapshot": {
+        "courseId": "course-1",
+        "courseTitle": "Intro to Web Development",
+        "enrollmentStatus": "completed",
+        "completed": 2,
+        "total": 3,
+        "percent": 67,
+        "nextLessonTitle": "test"
+      }
+    },
+    {
+      "id": "0f53e386-be5c-4cbc-87fa-b5c4b6b04050",
+      "studentId": "user-student-1",
+      "enrollmentId": "3638ae28-31d2-4154-a255-6d8a51fa93ae",
+      "startedAt": "2026-10-02T21:09:03.338Z",
+      "endedAt": null,
+      "contextSnapshot": {
+        "courseId": "course-1",
+        "courseTitle": "Intro to Web Development",
+        "enrollmentStatus": "completed",
+        "completed": 2,
+        "total": 3,
+        "percent": 67,
+        "nextLessonTitle": "test"
+      }
+    },
+    {
+      "id": "d72ff557-c2f9-4b9a-8d92-a2fde399a8d2",
+      "studentId": "user-student-1",
+      "enrollmentId": "3638ae28-31d2-4154-a255-6d8a51fa93ae",
+      "startedAt": "2026-10-02T21:09:06.367Z",
+      "endedAt": null,
+      "contextSnapshot": {
+        "courseId": "course-1",
+        "courseTitle": "Intro to Web Development",
+        "enrollmentStatus": "completed",
+        "completed": 2,
+        "total": 3,
+        "percent": 67,
+        "nextLessonTitle": "test"
+      }
+    },
+    {
+      "id": "1c38c45d-c53e-4553-8b29-91f50b155102",
+      "studentId": "user-student-1",
+      "enrollmentId": "3638ae28-31d2-4154-a255-6d8a51fa93ae",
+      "startedAt": "2026-10-02T21:16:04.092Z",
+      "endedAt": null,
+      "contextSnapshot": {
+        "courseId": "course-1",
+        "courseTitle": "Intro to Web Development",
+        "enrollmentStatus": "completed",
+        "completed": 2,
+        "total": 3,
+        "percent": 67,
+        "nextLessonTitle": "test"
+      }
+    },
+    {
+      "id": "fd8214a1-0f45-4d0b-9a66-a4b2ad4300c5",
+      "studentId": "user-student-1",
+      "enrollmentId": "3638ae28-31d2-4154-a255-6d8a51fa93ae",
+      "startedAt": "2026-10-02T21:18:23.107Z",
+      "endedAt": null,
+      "contextSnapshot": {
+        "courseId": "course-1",
+        "courseTitle": "Intro to Web Development",
+        "enrollmentStatus": "completed",
+        "completed": 2,
+        "total": 3,
+        "percent": 67,
+        "nextLessonTitle": "test"
+      }
+    },
+    {
+      "id": "3cfad2b2-9a80-47d4-a5c6-f8018ba484a5",
+      "studentId": "user-student-1",
+      "enrollmentId": "f68b44d8-945e-4489-a7b4-4325d3749903",
+      "startedAt": "2026-10-02T21:47:01.590Z",
+      "endedAt": null,
+      "contextSnapshot": {
+        "courseId": "c7c1ac74-874c-4016-b374-017fd6841101",
+        "courseTitle": "Systems Integration & Architecture: Weeks 2–5 Cram Reviewer",
+        "enrollmentStatus": "active",
+        "completed": 4,
+        "total": 16,
+        "percent": 25,
+        "nextLessonTitle": "Software Development Life Cycle"
+      }
+    },
+    {
+      "id": "cdb97aa5-23f0-426d-84bd-d15cdb9ad7fe",
+      "studentId": "c5878637-657c-4606-a411-215035bfe0c9",
+      "enrollmentId": "1943b627-2ea3-4809-96fe-9c81534e96ce",
+      "startedAt": "2026-10-03T06:44:44.250Z",
+      "endedAt": null,
+      "contextSnapshot": {
+        "courseId": "c7c1ac74-874c-4016-b374-017fd6841101",
+        "courseTitle": "Systems Integration & Architecture: Weeks 2–5 Cram Reviewer",
+        "enrollmentStatus": "active",
+        "completed": 0,
+        "total": 16,
+        "percent": 0,
+        "nextLessonTitle": "Project Life Cycle"
+      }
+    },
+    {
+      "id": "14c702e5-e425-4fc0-b5fb-bea32933f71c",
+      "studentId": "c5878637-657c-4606-a411-215035bfe0c9",
+      "enrollmentId": "1943b627-2ea3-4809-96fe-9c81534e96ce",
+      "startedAt": "2026-10-03T06:44:59.341Z",
+      "endedAt": null,
+      "contextSnapshot": {
+        "courseId": "c7c1ac74-874c-4016-b374-017fd6841101",
+        "courseTitle": "Systems Integration & Architecture: Weeks 2–5 Cram Reviewer",
+        "enrollmentStatus": "active",
+        "completed": 0,
+        "total": 16,
+        "percent": 0,
+        "nextLessonTitle": "Project Life Cycle"
+      }
+    },
+    {
+      "id": "493f8627-c380-4114-a4d5-d7ec8932e1e2",
+      "studentId": "user-student-1",
+      "enrollmentId": "a61d1781-1fcf-4a68-9f0b-e531762de066",
+      "startedAt": "2026-10-09T06:27:45.659Z",
+      "endedAt": null,
+      "contextSnapshot": {
+        "courseId": "1d1ed095-6716-40e5-a853-6e8751e19bb4",
+        "courseTitle": "HTML & CSS Fundamentals",
+        "enrollmentStatus": "active",
+        "completed": 0,
+        "total": 12,
+        "percent": 0,
+        "nextLessonTitle": "HTML and Document Structure"
+      }
+    }
+  ],
+  "aiMessages": [
+    {
+      "id": "9ae9f141-32b0-437c-a289-afcc9ae89b09",
+      "conversationId": "a4758730-d5f4-42a3-b726-463246309ce4",
+      "role": "student",
+      "content": "Hello sir I have a question regarding to the system",
+      "createdAt": "2026-09-24T19:52:08.880Z"
+    },
+    {
+      "id": "c81fd081-6527-4391-8808-8c4763fa91ab",
+      "conversationId": "9081e900-20af-41c9-b088-2178796fb223",
+      "role": "student",
+      "content": "asdasd",
+      "createdAt": "2026-10-02T19:40:40.011Z"
+    },
+    {
+      "id": "b4c72b4d-8dac-42a3-8336-120556b67357",
+      "conversationId": "0f53e386-be5c-4cbc-87fa-b5c4b6b04050",
+      "role": "student",
+      "content": "What does the body of an HTML page contain?",
+      "createdAt": "2026-10-02T21:09:03.338Z"
+    },
+    {
+      "id": "cfeabdaa-df97-4814-b242-546a506ab12a",
+      "conversationId": "0f53e386-be5c-4cbc-87fa-b5c4b6b04050",
+      "role": "assistant",
+      "content": "The body contains what people see on the page.",
+      "createdAt": "2026-10-02T21:09:06.299Z"
+    },
+    {
+      "id": "81d647b8-2088-4bfa-bd1d-0e382706f9aa",
+      "conversationId": "d72ff557-c2f9-4b9a-8d92-a2fde399a8d2",
+      "role": "student",
+      "content": "What is the capital of France?",
+      "createdAt": "2026-10-02T21:09:06.367Z"
+    },
+    {
+      "id": "4931205d-01fb-48b1-9ef5-dca06ddd5366",
+      "conversationId": "d72ff557-c2f9-4b9a-8d92-a2fde399a8d2",
+      "role": "assistant",
+      "content": "This course’s lessons do not include an answer to that.",
+      "createdAt": "2026-10-02T21:09:08.724Z"
+    },
+    {
+      "id": "f65f23ea-e337-4a10-a163-92ee16872d98",
+      "conversationId": "1c38c45d-c53e-4553-8b29-91f50b155102",
+      "role": "student",
+      "content": "What is HTML",
+      "createdAt": "2026-10-02T21:16:04.092Z"
+    },
+    {
+      "id": "a809ead6-7566-47e3-8f96-f4f67f445353",
+      "conversationId": "1c38c45d-c53e-4553-8b29-91f50b155102",
+      "role": "assistant",
+      "content": "HTML is the markup used to structure a web page, with elements such as headings, paragraphs, lists, links, and images.",
+      "createdAt": "2026-10-02T21:16:06.139Z"
+    },
+    {
+      "id": "11c93340-8a53-4c24-ab24-4ec00251d6a7",
+      "conversationId": "fd8214a1-0f45-4d0b-9a66-a4b2ad4300c5",
+      "role": "student",
+      "content": "What is web",
+      "createdAt": "2026-10-02T21:18:23.107Z"
+    },
+    {
+      "id": "bb69be1c-276f-421c-b8a0-f8e5f1397b63",
+      "conversationId": "fd8214a1-0f45-4d0b-9a66-a4b2ad4300c5",
+      "role": "assistant",
+      "content": "This course’s lessons do not include an answer to that.",
+      "createdAt": "2026-10-02T21:18:25.718Z"
+    },
+    {
+      "id": "ef3e9c1e-4d5b-4ca7-8925-50631e860a50",
+      "conversationId": "3cfad2b2-9a80-47d4-a5c6-f8018ba484a5",
+      "role": "student",
+      "content": "What is Project Life Cycle?",
+      "createdAt": "2026-10-02T21:47:01.590Z"
+    },
+    {
+      "id": "6ad3eca0-dd52-450b-bd54-1f6c85cfcf77",
+      "conversationId": "3cfad2b2-9a80-47d4-a5c6-f8018ba484a5",
+      "role": "assistant",
+      "content": "The Project Life Cycle (PLC) manages the entire project through five phases: Initiation, Planning, Execution, Monitoring and Controlling, and Closure.",
+      "createdAt": "2026-10-02T21:47:03.163Z"
+    },
+    {
+      "id": "51d94dd4-1339-4b5f-854c-9d0cf0fec659",
+      "conversationId": "cdb97aa5-23f0-426d-84bd-d15cdb9ad7fe",
+      "role": "student",
+      "content": "What is Project Life Cycle",
+      "createdAt": "2026-10-03T06:44:44.250Z"
+    },
+    {
+      "id": "d4bdeea2-87ce-4621-86e2-5561a00e1b2d",
+      "conversationId": "cdb97aa5-23f0-426d-84bd-d15cdb9ad7fe",
+      "role": "assistant",
+      "content": "The Project Life Cycle (PLC) manages an entire project through five phases: Initiation, Planning, Execution, Monitoring and Controlling, and Closure.",
+      "createdAt": "2026-10-03T06:44:46.843Z"
+    },
+    {
+      "id": "7be37901-eddc-4a27-954b-b1e3c669a59f",
+      "conversationId": "14c702e5-e425-4fc0-b5fb-bea32933f71c",
+      "role": "student",
+      "content": "What is World Map",
+      "createdAt": "2026-10-03T06:44:59.341Z"
+    },
+    {
+      "id": "53c701a3-04b0-4a2a-8111-4a4bd8014651",
+      "conversationId": "14c702e5-e425-4fc0-b5fb-bea32933f71c",
+      "role": "assistant",
+      "content": "This course’s lessons do not include an answer to that.",
+      "createdAt": "2026-10-03T06:45:00.458Z"
+    },
+    {
+      "id": "55260e78-67fc-4045-9991-a63421430ef7",
+      "conversationId": "493f8627-c380-4114-a4d5-d7ec8932e1e2",
+      "role": "student",
+      "content": "what is html",
+      "createdAt": "2026-10-09T06:27:45.659Z"
+    }
+  ]
+}

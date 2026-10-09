@@ -1,0 +1,284 @@
+@import "tailwindcss";
+
+/*
+  Colour is functional, not decorative. Each hue maps to one meaning:
+  brand = interactive, success = completed/live, warn = unfinished, danger = failed.
+*/
+:root {
+  --canvas: #f8fafc;
+  --surface: #ffffff;
+  --subtle: #f1f5f9;
+  --line: #e2e8f0;
+  --line-strong: #cbd5e1;
+  --ink: #0f172a;
+  --muted: #475569;
+
+  --brand: #0f766e;
+  --brand-strong: #115e59;
+  --brand-soft: #eefbf8;
+
+  --success: #15803d;
+  --success-soft: #f0fdf4;
+  --warn: #b45309;
+  --warn-soft: #fffbeb;
+  --danger: #b91c1c;
+  --danger-soft: #fef2f2;
+
+  --background: var(--canvas);
+  --foreground: var(--ink);
+  --shadow: 0 1px 2px rgb(15 23 42 / 0.05), 0 8px 24px rgb(15 23 42 / 0.06);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-subtle: var(--subtle);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-brand: var(--brand);
+  --color-brand-strong: var(--brand-strong);
+  --color-brand-soft: var(--brand-soft);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --font-sans: var(--font-source-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-source-sans), system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  caret-color: var(--brand);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--brand-soft);
+  color: var(--brand-strong);
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+a {
+  text-underline-offset: 0.18em;
+}
+
+button:not(:disabled),
+a {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+  transition:
+    color 160ms cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 160ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 160ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 160ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  scrollbar-color: var(--line-strong) transparent;
+}
+
+.page-title {
+  font-size: clamp(1.5rem, 1.1rem + 1.4vw, 1.9rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.section-title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+
+.eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0 1.125rem;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.btn:disabled {
+  opacity: 0.55;
+}
+
+.btn-primary {
+  background: var(--brand);
+  color: #ffffff;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--brand-strong);
+}
+
+.btn-secondary {
+  background: var(--surface);
+  border-color: var(--line-strong);
+  color: var(--ink);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: var(--subtle);
+}
+
+.btn-danger {
+  background: var(--danger);
+  color: #ffffff;
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: #991b1b;
+}
+
+.btn-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: var(--muted);
+  background: transparent;
+}
+
+.btn-icon:hover:not(:disabled) {
+  background: var(--subtle);
+  color: var(--ink);
+}
+
+.btn-quiet {
+  color: var(--muted);
+}
+
+.btn-quiet:hover:not(:disabled) {
+  background: var(--subtle);
+  color: var(--ink);
+}
+
+.label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.hint {
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+.field {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: var(--surface);
+  padding: 0.625rem 0.75rem;
+  color: var(--ink);
+  font-size: 0.9375rem;
+}
+
+.field::placeholder {
+  color: var(--muted);
+}
+
+.field:hover:not(:disabled) {
+  border-color: var(--muted);
+}
+
+.field:focus {
+  border-color: var(--brand);
+  box-shadow: 0 1px 2px rgb(15 23 42 / 0.05), 0 0 0 3px rgb(15 118 110 / 0.16);
+  outline: none;
+}
+
+select.field {
+  appearance: auto;
+  padding-right: 2rem;
+}
+
+.path-rail-dot {
+  background: var(--subtle);
+  border: 1px solid var(--line-strong);
+  color: var(--muted);
+}
+
+.path-rail li:first-child .path-rail-dot {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #ffffff;
+  animation: path-light 720ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.path-rail-line {
+  background: var(--line);
+}
+
+.path-rail li:first-child .path-rail-line {
+  background: var(--brand);
+}
+
+@keyframes path-light {
+  from {
+    box-shadow: 0 0 0 0 rgb(15 118 110 / 0);
+  }
+  to {
+    box-shadow: 0 1px 2px rgb(15 23 42 / 0.08), 0 0 0 4px rgb(15 118 110 / 0.14);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
