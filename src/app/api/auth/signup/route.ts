@@ -4,6 +4,22 @@ import { ensureAcademyProfile } from "@/lib/registerProfile";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { createClient } from "@/lib/supabase/server";
 
+function takenEmailMessage(
+  existingRole: string | null,
+  requestedRole: "student" | "instructor",
+) {
+  if (existingRole === "student" && requestedRole === "instructor") {
+    return "This email is already a student account. An instructor account needs a different email.";
+  }
+  if (existingRole === "instructor" && requestedRole === "student") {
+    return "This email is already an instructor account. A student account needs a different email.";
+  }
+  if (existingRole) {
+    return "This email is already used. Sign in instead.";
+  }
+  return null;
+}
+
 export async function POST(request: Request) {
   if (!isSupabaseConfigured()) {
     return NextResponse.json(
@@ -46,6 +62,24 @@ export async function POST(request: Request) {
   }
 
   const supabase = await createClient();
+  const { data: existingRole, error: lookupError } = await supabase.rpc(
+    "account_role_for_email",
+    { p_email: email },
+  );
+  if (lookupError) {
+    return NextResponse.json(
+      { error: "Could not check this email. Try again." },
+      { status: 500 },
+    );
+  }
+  const taken = takenEmailMessage(
+    typeof existingRole === "string" ? existingRole : null,
+    body.role,
+  );
+  if (taken) {
+    return NextResponse.json({ error: taken }, { status: 409 });
+  }
+
   const { data: signedUp, error: signUpError } = await supabase.auth.signUp({
     email,
     password,
