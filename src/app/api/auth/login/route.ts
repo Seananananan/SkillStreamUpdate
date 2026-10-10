@@ -73,6 +73,19 @@ export async function POST(request: Request) {
     );
   }
 
+  if (
+    (body.role === "student" || body.role === "instructor") &&
+    user.role !== body.role
+  ) {
+    await supabase.auth.signOut();
+    return NextResponse.json(
+      {
+        error: `This page is for ${body.role} accounts. Use the ${user.role} sign-in page for this account.`,
+      },
+      { status: 403 },
+    );
+  }
+
   return NextResponse.json({
     role: user.role,
     name: `${user.firstName} ${user.lastName}`,

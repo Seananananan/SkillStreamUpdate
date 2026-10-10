@@ -9,6 +9,7 @@ import type {
   Lesson,
   LessonProgress,
   LmsAccount,
+  QuizAttempt,
   User,
 } from "../types";
 
@@ -163,6 +164,41 @@ export function mapProgress(row: {
     status: row.status,
     completedAt: isoNull(row.completed_at),
     score: row.score == null ? null : Number(row.score),
+    createdAt: iso(row.created_at),
+    updatedAt: iso(row.updated_at),
+  };
+}
+
+export function mapQuizAttempt(row: {
+  id: string;
+  enrollment_id: string;
+  lesson_id: string;
+  attempt_number: number;
+  status: QuizAttempt["status"];
+  answers: unknown;
+  score: number | string | null;
+  started_at: string;
+  expires_at: string | null;
+  submitted_at: string | null;
+  created_at: string;
+  updated_at: string;
+}): QuizAttempt {
+  const answers = Array.isArray(row.answers)
+    ? row.answers.map((answer) =>
+        typeof answer === "number" && Number.isInteger(answer) ? answer : null,
+      )
+    : [];
+  return {
+    id: row.id,
+    enrollmentId: row.enrollment_id,
+    lessonId: row.lesson_id,
+    attemptNumber: row.attempt_number,
+    status: row.status,
+    answers,
+    score: row.score == null ? null : Number(row.score),
+    startedAt: iso(row.started_at),
+    expiresAt: isoNull(row.expires_at),
+    submittedAt: isoNull(row.submitted_at),
     createdAt: iso(row.created_at),
     updatedAt: iso(row.updated_at),
   };

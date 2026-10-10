@@ -91,12 +91,20 @@ export default async function CoursePlayerOverviewPage({ params }: PageProps) {
                 <p className="mt-1 font-mono text-sm">
                   {state.certificate.referenceNumber}
                 </p>
-                <Link
-                  href={`/student/certificates/${state.certificate.id}`}
-                  className="mt-3 inline-flex text-sm font-medium text-brand hover:text-brand-strong"
-                >
-                  View certificate
-                </Link>
+                <div className="mt-3 flex flex-wrap gap-4">
+                  <Link
+                    href={`/student/learning/${course.id}/complete`}
+                    className="text-sm font-medium text-brand hover:text-brand-strong"
+                  >
+                    Review progress
+                  </Link>
+                  <Link
+                    href={`/student/certificates/${state.certificate.id}`}
+                    className="text-sm font-medium text-brand hover:text-brand-strong"
+                  >
+                    View certificate
+                  </Link>
+                </div>
               </div>
             ) : courseComplete ? (
               <div className="mt-5 rounded-lg border border-success/25 bg-success-soft px-4 py-3">

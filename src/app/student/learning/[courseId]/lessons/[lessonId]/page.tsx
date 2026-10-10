@@ -8,9 +8,10 @@ import { CourseOutline } from "@/components/player/CourseOutline";
 import { LessonBody } from "@/components/player/LessonBody";
 import { requireRole } from "@/lib/auth";
 import { canAccessLessons, courseAccessState } from "@/lib/access";
-import { getPlayerState, startLesson } from "@/lib/db";
+import { getPlayerState, startLesson, startQuizAttempt } from "@/lib/db";
 import { studentNav } from "@/lib/nav";
 import { contentTypeLabels, getLessonProgressStatus } from "@/lib/player";
+import type { QuizAttempt } from "@/lib/types";
 
 type PageProps = {
   params: Promise<{ courseId: string; lessonId: string }>;
@@ -27,10 +28,20 @@ export default async function LessonPlayerPage({ params }: PageProps) {
   }
 
   const accessReady = canAccessLessons(state.enrollment, state.lmsAccount);
+  let quizAttempt: QuizAttempt | null = null;
   if (accessReady) {
-    const started = await startLesson(session.id, courseId, lessonId);
-    if (!started.ok) {
-      notFound();
+    const initialStatus = getLessonProgressStatus(state.progress, lesson.id);
+    if (lesson.contentType === "quiz" && initialStatus !== "completed") {
+      const started = await startQuizAttempt(session.id, courseId, lessonId);
+      if (!started.ok) {
+        notFound();
+      }
+      quizAttempt = started.attempt;
+    } else {
+      const started = await startLesson(session.id, courseId, lessonId);
+      if (!started.ok) {
+        notFound();
+      }
     }
     state = await getPlayerState(session.id, courseId);
     if (!state) {
@@ -92,7 +103,11 @@ export default async function LessonPlayerPage({ params }: PageProps) {
           ) : (
             <>
               <div className="mt-5">
-                <LessonBody lesson={lesson} />
+                <LessonBody
+                  lesson={lesson}
+                  courseId={courseId}
+                  quizAttempt={quizAttempt}
+                />
               </div>
 
               <div className="mt-8 flex flex-wrap items-center justify-between gap-3 border-t border-line pt-5">
@@ -107,11 +122,13 @@ export default async function LessonPlayerPage({ params }: PageProps) {
                   <span />
                 )}
                 <CompleteLessonButton
+                  key={quizAttempt?.id ?? lesson.id}
                   courseId={courseId}
                   lesson={lesson}
                   completed={completed}
                   nextLessonId={nextLessonId}
                   finishesCourse={finishesCourse}
+                  quizAttempt={quizAttempt}
                 />
               </div>
             </>

@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LoaderCircle } from "lucide-react";
-import type { Lesson } from "@/lib/types";
+import type { Lesson, QuizAttempt } from "@/lib/types";
 import { withConfirmed } from "@/lib/confirmations";
+import { parseQuizConfig } from "@/lib/lessonContent";
 import { completeActionLabel } from "@/lib/player";
 import { ConfirmDialog, useConfirmDialog } from "../feedback/ConfirmDialog";
 
@@ -15,6 +16,7 @@ interface CompleteLessonButtonProps {
   completed: boolean;
   nextLessonId: string | null;
   finishesCourse: boolean;
+  quizAttempt: QuizAttempt | null;
 }
 
 export function CompleteLessonButton({
@@ -23,30 +25,61 @@ export function CompleteLessonButton({
   completed,
   nextLessonId,
   finishesCourse,
+  quizAttempt,
 }: CompleteLessonButtonProps) {
   const router = useRouter();
   const confirm = useConfirmDialog();
   const [error, setError] = useState("");
+  const [retrying, setRetrying] = useState(false);
+  const [quizAttemptStatus, setQuizAttemptStatus] = useState(
+    quizAttempt?.status ?? null,
+  );
+
+  useEffect(() => {
+    if (!quizAttempt || quizAttempt.status !== "in_progress" || !quizAttempt.expiresAt) {
+      return;
+    }
+    const expiresAt = quizAttempt.expiresAt;
+    function updateStatus() {
+      if (Date.now() >= Date.parse(expiresAt)) {
+        setQuizAttemptStatus("timed_out");
+      }
+    }
+    const interval = window.setInterval(updateStatus, 1000);
+    return () => window.clearInterval(interval);
+  }, [quizAttempt]);
 
   const courseHref = `/student/learning/${courseId}`;
   const nextHref = nextLessonId
     ? `/student/learning/${courseId}/lessons/${nextLessonId}`
     : courseHref;
   const actionLabel = completeActionLabel(lesson.contentType);
+  const attemptClosed =
+    lesson.contentType === "quiz" && quizAttemptStatus !== "in_progress";
 
-  function selectedQuizChoice() {
+  function selectedQuizChoices() {
     if (lesson.contentType !== "quiz") return undefined;
-    const selected = document.querySelector<HTMLInputElement>(
-      `input[name="quiz-${lesson.id}"]:checked`,
-    );
-    if (!selected) return null;
-    const choiceIndex = Number(selected.value);
-    return Number.isInteger(choiceIndex) ? choiceIndex : null;
+    const quiz = parseQuizConfig(lesson.contentRef);
+    const choices = quiz.questions.map((_, questionIndex) => {
+      const selected = document.querySelector<HTMLInputElement>(
+        `input[name="quiz-${lesson.id}-${questionIndex}"]:checked`,
+      );
+      if (!selected) return null;
+      const choiceIndex = Number(selected.value);
+      return Number.isInteger(choiceIndex) ? choiceIndex : null;
+    });
+    return choices.length > 0 && choices.every((choice) => choice != null)
+      ? choices
+      : null;
   }
 
   function handleRequest() {
-    if (lesson.contentType === "quiz" && selectedQuizChoice() == null) {
-      setError("Choose an answer first.");
+    if (attemptClosed) {
+      setError("Start a new attempt before submitting.");
+      return;
+    }
+    if (lesson.contentType === "quiz" && selectedQuizChoices() == null) {
+      setError("Answer every question first.");
       return;
     }
     setError("");
@@ -55,9 +88,9 @@ export function CompleteLessonButton({
 
   async function handleComplete() {
     setError("");
-    const choiceIndex = selectedQuizChoice();
-    if (lesson.contentType === "quiz" && choiceIndex == null) {
-      setError("Choose an answer first.");
+    const choiceIndexes = selectedQuizChoices();
+    if (lesson.contentType === "quiz" && choiceIndexes == null) {
+      setError("Answer every question first.");
       return;
     }
     await confirm.run(async () => {
@@ -69,7 +102,8 @@ export function CompleteLessonButton({
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
               status: "completed",
-              choiceIndex: lesson.contentType === "quiz" ? choiceIndex : undefined,
+              choiceIndexes:
+                lesson.contentType === "quiz" ? choiceIndexes : undefined,
             }),
           },
         );
@@ -78,19 +112,26 @@ export function CompleteLessonButton({
           nextLesson?: { id: string } | null;
           certificate?: { id: string } | null;
           justCertified?: boolean;
+          attempt?: QuizAttempt | null;
+          canRetry?: boolean;
         };
 
         if (!response.ok) {
           setError(data.error ?? "This lesson could not be completed.");
+          if (data.attempt?.status) {
+            setQuizAttemptStatus(data.attempt.status);
+          } else if (data.canRetry) {
+            setQuizAttemptStatus("failed");
+          }
+          if (data.canRetry) {
+            router.refresh();
+          }
           return;
         }
 
         if (data.justCertified && data.certificate?.id) {
           router.push(
-            withConfirmed(
-              `/student/certificates/${data.certificate.id}`,
-              "certified",
-            ),
+            withConfirmed(`/student/learning/${courseId}/complete`, "certified"),
           );
         } else {
           const destination = data.nextLesson
@@ -98,11 +139,46 @@ export function CompleteLessonButton({
             : courseHref;
           router.push(withConfirmed(destination, "lesson-complete"));
         }
-        router.refresh();
       } catch {
         setError("This lesson could not be completed. Check your connection.");
       }
     });
+  }
+
+  async function handleRetry() {
+    setRetrying(true);
+    setError("");
+    try {
+      const response = await fetch(
+        `/api/learning/${courseId}/lessons/${lesson.id}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ status: "retry" }),
+        },
+      );
+      const data = (await response.json()) as {
+        error?: string;
+        attempt?: QuizAttempt;
+      };
+      if (!response.ok) {
+        setError(data.error ?? "A new attempt could not be started.");
+        return;
+      }
+      document
+        .querySelectorAll<HTMLInputElement>(
+          `input[name^="quiz-${lesson.id}-"]`,
+        )
+        .forEach((input) => {
+          input.checked = false;
+        });
+      setQuizAttemptStatus(data.attempt?.status ?? "in_progress");
+      router.refresh();
+    } catch {
+      setError("A new attempt could not be started. Check your connection.");
+    } finally {
+      setRetrying(false);
+    }
   }
 
   if (completed) {
@@ -116,12 +192,40 @@ export function CompleteLessonButton({
     );
   }
 
+  if (attemptClosed) {
+    return (
+      <div>
+        <button
+          type="button"
+          onClick={handleRetry}
+          disabled={retrying}
+          className="btn btn-primary"
+        >
+          {retrying ? (
+            <LoaderCircle aria-hidden="true" size={16} className="animate-spin" />
+          ) : null}
+          {retrying ? "Starting…" : "Retry quiz"}
+        </button>
+        <p className="mt-2 text-sm text-muted">
+          {quizAttemptStatus === "timed_out"
+            ? "Time elapsed for this attempt."
+            : "This attempt was not passed."}
+        </p>
+        {error ? (
+          <p role="alert" className="mt-2 text-sm text-danger">
+            {error}
+          </p>
+        ) : null}
+      </div>
+    );
+  }
+
   return (
     <div>
       <button
         type="button"
         onClick={handleRequest}
-        disabled={confirm.busy}
+        disabled={confirm.busy || attemptClosed}
         className="btn btn-primary"
       >
         {confirm.busy ? (

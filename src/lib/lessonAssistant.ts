@@ -19,11 +19,18 @@ export function courseLessonText(lessons: Lesson[]): string {
 
     if (lesson.contentType === "quiz") {
       const quiz = parseQuizConfig(lesson.contentRef);
-      const choices = quiz.choices.map((choice) => choice.trim()).filter(Boolean);
-      if (!quiz.prompt.trim() && choices.length === 0) continue;
       const lines = [`Quiz: ${lesson.title}`];
-      if (quiz.prompt.trim()) lines.push(quiz.prompt.trim());
-      if (choices.length > 0) lines.push(`Choices: ${choices.join("; ")}`);
+      for (const [index, question] of quiz.questions.entries()) {
+        const choices = question.choices
+          .map((choice) => choice.trim())
+          .filter(Boolean);
+        if (!question.prompt.trim() && choices.length === 0) continue;
+        if (question.prompt.trim()) {
+          lines.push(`${index + 1}. ${question.prompt.trim()}`);
+        }
+        if (choices.length > 0) lines.push(`Choices: ${choices.join("; ")}`);
+      }
+      if (lines.length === 1) continue;
       sections.push(lines.join("\n"));
     }
   }

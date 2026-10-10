@@ -38,13 +38,14 @@ export function studentCourseHref(
   courseId: string,
   input: {
     accessReady: boolean;
+    completed?: boolean;
     certificateId?: string | null;
     nextLessonId?: string | null;
   },
 ) {
   if (!input.accessReady) return `/student/learning/${courseId}`;
-  if (input.certificateId) {
-    return `/student/certificates/${input.certificateId}`;
+  if (input.completed || input.certificateId) {
+    return `/student/learning/${courseId}/complete`;
   }
   if (input.nextLessonId) {
     return `/student/learning/${courseId}/lessons/${input.nextLessonId}`;
@@ -59,8 +60,7 @@ export function studentCourseActionLabel(input: {
   hasCertificate?: boolean;
 }) {
   if (!input.accessReady) return "View access";
-  if (input.hasCertificate) return "Certificate";
-  if (input.completed) return "Review";
+  if (input.hasCertificate || input.completed) return "Review progress";
   if (!input.started) return "Start";
   return "Continue";
 }

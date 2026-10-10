@@ -7,6 +7,7 @@ import type {
   Lesson,
   LessonProgress,
   LmsAccount,
+  QuizAttempt,
   User,
 } from "./types";
 import { normalizeReference, certificateFilePath } from "./certificates";
@@ -27,6 +28,7 @@ import {
   mapMessage,
   mapModule,
   mapProgress,
+  mapQuizAttempt,
   mapUser,
 } from "./supabase/map";
 
@@ -822,6 +824,57 @@ export async function getPlayerState(studentId: string, courseId: string) {
   };
 }
 
+export async function getCourseCompletionSummary(studentId: string, courseId: string) {
+  const state = await getPlayerState(studentId, courseId);
+  if (!state || state.enrollment.status !== "completed") return null;
+
+  const quizLessons = state.lessons.filter((lesson) => lesson.contentType === "quiz");
+  const supabase = await db();
+  const { data, error } = quizLessons.length
+    ? await supabase
+        .from("quiz_attempts")
+        .select("*")
+        .eq("enrollment_id", state.enrollment.id)
+        .in(
+          "lesson_id",
+          quizLessons.map((lesson) => lesson.id),
+        )
+    : { data: [], error: null };
+  throwOnError(error, "getCourseCompletionSummary");
+  const attempts = (data ?? []).map(mapQuizAttempt);
+
+  const quizzes = quizLessons.map((lesson) => {
+    const lessonAttempts = attempts.filter(
+      (attempt) =>
+        attempt.lessonId === lesson.id && attempt.status !== "in_progress",
+    );
+    const passed = lessonAttempts.find((attempt) => attempt.status === "passed");
+    const bestScore = lessonAttempts.reduce<number | null>((best, attempt) => {
+      if (attempt.score == null) return best;
+      return best == null ? attempt.score : Math.max(best, attempt.score);
+    }, null);
+    return {
+      lessonId: lesson.id,
+      title: lesson.title,
+      questionCount: parseQuizConfig(lesson.contentRef).questions.length,
+      attemptCount: lessonAttempts.length,
+      passedFirstTry: passed?.attemptNumber === 1,
+      bestScore,
+    };
+  });
+
+  return {
+    course: state.course,
+    enrollment: state.enrollment,
+    summary: state.summary,
+    certificate: state.certificate,
+    quizzes,
+    questionsAnswered: quizzes.reduce((total, quiz) => total + quiz.questionCount, 0),
+    firstTryPasses: quizzes.filter((quiz) => quiz.passedFirstTry).length,
+    retried: quizzes.filter((quiz) => quiz.attemptCount > 1).length,
+  };
+}
+
 export async function startLesson(studentId: string, courseId: string, lessonId: string) {
   const supabase = await db();
   const enrollment = await getEnrollmentByStudentAndCourse(studentId, courseId);
@@ -880,15 +933,296 @@ export async function startLesson(studentId: string, courseId: string, lessonId:
     })
     .select()
     .single();
+  if (error?.code === "23505") {
+    const { data: concurrent, error: recoveryError } = await supabase
+      .from("lesson_progress")
+      .select("*")
+      .eq("enrollment_id", enrollment.id)
+      .eq("lesson_id", lessonId)
+      .single();
+    throwOnError(recoveryError, "startLesson recovery");
+    return { ok: true as const, progress: mapProgress(concurrent), enrollment };
+  }
   throwOnError(error, "startLesson insert");
   return { ok: true as const, progress: mapProgress(created), enrollment };
+}
+
+async function getLatestQuizAttempt(
+  supabase: DbClient,
+  enrollmentId: string,
+  lessonId: string,
+) {
+  const { data, error } = await supabase
+    .from("quiz_attempts")
+    .select("*")
+    .eq("enrollment_id", enrollmentId)
+    .eq("lesson_id", lessonId)
+    .order("attempt_number", { ascending: false })
+    .limit(1)
+    .maybeSingle();
+  throwOnError(error, "getLatestQuizAttempt");
+  return data ? mapQuizAttempt(data) : null;
+}
+
+async function getQuizLesson(supabase: DbClient, lessonId: string) {
+  const { data, error } = await supabase
+    .from("lessons")
+    .select("*")
+    .eq("id", lessonId)
+    .maybeSingle();
+  throwOnError(error, "getQuizLesson");
+  const lesson = data ? mapLesson(data) : null;
+  if (!lesson || lesson.contentType !== "quiz") return null;
+  return lesson;
+}
+
+function quizHasTimer(lesson: Pick<Lesson, "durationMinutes">) {
+  return lesson.durationMinutes != null && lesson.durationMinutes > 0;
+}
+
+function attemptIsExpired(attempt: Pick<QuizAttempt, "expiresAt">) {
+  return attempt.expiresAt != null && Date.now() >= Date.parse(attempt.expiresAt);
+}
+
+function quizAttemptDeadline(startedAt: string, durationMinutes: number) {
+  return new Date(
+    new Date(startedAt).getTime() + durationMinutes * 60 * 1000,
+  ).toISOString();
+}
+
+async function createQuizAttempt(
+  supabase: DbClient,
+  enrollmentId: string,
+  lessonId: string,
+  durationMinutes: number | null,
+  attemptNumber: number,
+) {
+  const startedAt = new Date().toISOString();
+  const timed = durationMinutes != null && durationMinutes > 0;
+  const { data, error } = await supabase
+    .from("quiz_attempts")
+    .insert({
+      id: randomUUID(),
+      enrollment_id: enrollmentId,
+      lesson_id: lessonId,
+      attempt_number: attemptNumber,
+      status: "in_progress",
+      answers: [],
+      score: null,
+      started_at: startedAt,
+      expires_at: timed ? quizAttemptDeadline(startedAt, durationMinutes) : null,
+      submitted_at: null,
+    })
+    .select()
+    .single();
+  if (error?.code === "23505") {
+    return getLatestQuizAttempt(supabase, enrollmentId, lessonId);
+  }
+  throwOnError(error, "createQuizAttempt");
+  return mapQuizAttempt(data);
+}
+
+async function markQuizAttemptTimedOut(
+  supabase: DbClient,
+  attempt: QuizAttempt,
+  answers: Array<number | null> = attempt.answers,
+) {
+  if (attempt.status !== "in_progress") return attempt;
+  const now = new Date().toISOString();
+  const { data, error } = await supabase
+    .from("quiz_attempts")
+    .update({
+      status: "timed_out",
+      answers,
+      score: attempt.score ?? 0,
+      submitted_at: now,
+    })
+    .eq("id", attempt.id)
+    .eq("status", "in_progress")
+    .select()
+    .maybeSingle();
+  throwOnError(error, "markQuizAttemptTimedOut");
+  if (data) return mapQuizAttempt(data);
+  return (
+    (await getLatestQuizAttempt(
+      supabase,
+      attempt.enrollmentId,
+      attempt.lessonId,
+    )) ?? attempt
+  );
+}
+
+export async function startQuizAttempt(
+  studentId: string,
+  courseId: string,
+  lessonId: string,
+) {
+  const started = await startLesson(studentId, courseId, lessonId);
+  if (!started.ok) return started;
+
+  const supabase = await db();
+  const lesson = await getQuizLesson(supabase, lessonId);
+  if (!lesson) {
+    return { ok: false as const, error: "Lesson not found.", status: 404 };
+  }
+
+  let attempt = await getLatestQuizAttempt(
+    supabase,
+    started.enrollment.id,
+    lessonId,
+  );
+  if (
+    quizHasTimer(lesson) &&
+    attempt?.status === "in_progress" &&
+    attemptIsExpired(attempt)
+  ) {
+    attempt = await markQuizAttemptTimedOut(supabase, attempt);
+  }
+  if (!attempt) {
+    attempt = await createQuizAttempt(
+      supabase,
+      started.enrollment.id,
+      lessonId,
+      quizHasTimer(lesson) ? lesson.durationMinutes : null,
+      1,
+    );
+  }
+  if (!attempt) {
+    return {
+      ok: false as const,
+      error: "This quiz attempt could not be started.",
+      status: 409,
+    };
+  }
+  return { ...started, attempt };
+}
+
+export async function retryQuizAttempt(
+  studentId: string,
+  courseId: string,
+  lessonId: string,
+) {
+  const started = await startLesson(studentId, courseId, lessonId);
+  if (!started.ok) return started;
+
+  const supabase = await db();
+  const lesson = await getQuizLesson(supabase, lessonId);
+  if (!lesson) {
+    return { ok: false as const, error: "Lesson not found.", status: 404 };
+  }
+
+  let latest = await getLatestQuizAttempt(
+    supabase,
+    started.enrollment.id,
+    lessonId,
+  );
+  if (
+    quizHasTimer(lesson) &&
+    latest?.status === "in_progress" &&
+    attemptIsExpired(latest)
+  ) {
+    latest = await markQuizAttemptTimedOut(supabase, latest);
+  }
+  if (latest?.status === "in_progress") {
+    return {
+      ok: false as const,
+      error: "A quiz attempt is already in progress.",
+      status: 409,
+      attempt: latest,
+    };
+  }
+  if (latest?.status === "passed") {
+    return {
+      ok: false as const,
+      error: "This quiz has already been passed.",
+      status: 409,
+      attempt: latest,
+    };
+  }
+
+  const attempt = await createQuizAttempt(
+    supabase,
+    started.enrollment.id,
+    lessonId,
+    quizHasTimer(lesson) ? lesson.durationMinutes : null,
+    (latest?.attemptNumber ?? 0) + 1,
+  );
+  if (!attempt) {
+    return {
+      ok: false as const,
+      error: "A new quiz attempt could not be started.",
+      status: 409,
+    };
+  }
+  return { ok: true as const, attempt };
+}
+
+export async function timeoutQuizAttempt(
+  studentId: string,
+  courseId: string,
+  lessonId: string,
+  attemptId: string,
+  choiceIndexes?: Array<number | null>,
+) {
+  const started = await startLesson(studentId, courseId, lessonId);
+  if (!started.ok) return started;
+
+  const supabase = await db();
+  const lesson = await getQuizLesson(supabase, lessonId);
+  if (!lesson || !quizHasTimer(lesson)) {
+    return {
+      ok: false as const,
+      error: "This quiz does not use timed attempts.",
+      status: 400,
+    };
+  }
+  const latest = await getLatestQuizAttempt(
+    supabase,
+    started.enrollment.id,
+    lessonId,
+  );
+  if (!latest || latest.id !== attemptId) {
+    return {
+      ok: false as const,
+      error: "Quiz attempt not found.",
+      status: 404,
+    };
+  }
+  if (latest.status !== "in_progress") {
+    return { ok: true as const, attempt: latest };
+  }
+  if (!latest.expiresAt || Date.now() < Date.parse(latest.expiresAt)) {
+    return {
+      ok: false as const,
+      error: "Quiz time has not elapsed.",
+      status: 409,
+    };
+  }
+
+  const quiz = parseQuizConfig(lesson.contentRef);
+  const answers = quiz.questions.map((_, index) => {
+    const answer = choiceIndexes?.[index];
+    return typeof answer === "number" && Number.isInteger(answer) ? answer : null;
+  });
+  const correct = quiz.questions.filter(
+    (question, index) => question.correctIndex === answers[index],
+  ).length;
+  const score =
+    quiz.questions.length === 0
+      ? 0
+      : Math.round((correct / quiz.questions.length) * 100);
+  const attempt = await markQuizAttemptTimedOut(supabase, {
+    ...latest,
+    score,
+  }, answers);
+  return { ok: true as const, attempt };
 }
 
 export async function completeLesson(
   studentId: string,
   courseId: string,
   lessonId: string,
-  choiceIndex?: number,
+  choiceIndexes?: number[],
 ) {
   const started = await startLesson(studentId, courseId, lessonId);
   if (!started.ok) return started;
@@ -907,19 +1241,86 @@ export async function completeLesson(
 
   if (mappedLesson?.contentType === "quiz") {
     const quiz = parseQuizConfig(mappedLesson.contentRef);
-    if (quiz.correctIndex == null) {
+    if (
+      quiz.questions.length === 0 ||
+      quiz.questions.some((question) => question.correctIndex == null)
+    ) {
       return {
         ok: false as const,
-        error: "This quiz does not have a correct choice yet.",
+        error: "This quiz has a question without a correct choice.",
         status: 400,
       };
     }
-    if (choiceIndex !== quiz.correctIndex) {
+    const answers = quiz.questions.map((_, index) => {
+      const answer = choiceIndexes?.[index];
+      return typeof answer === "number" && Number.isInteger(answer) ? answer : null;
+    });
+    const correct = quiz.questions.filter(
+      (question, index) => question.correctIndex === answers[index],
+    ).length;
+    const passed = correct === quiz.questions.length;
+    const latest = await getLatestQuizAttempt(
+      supabase,
+      started.enrollment.id,
+      lessonId,
+    );
+    if (!latest) {
       return {
         ok: false as const,
-        error: "That answer is not right. Try again.",
-        status: 400,
+        error: "Start a quiz attempt before submitting.",
+        status: 409,
       };
+    }
+    if (latest.status !== "passed") {
+      if (latest.status !== "in_progress") {
+        return {
+          ok: false as const,
+          error:
+            latest.status === "timed_out"
+              ? "Time has elapsed. Start a new attempt."
+              : "Start a new attempt before submitting again.",
+          status: 409,
+          attempt: latest,
+          canRetry: true,
+        };
+      }
+      if (quizHasTimer(mappedLesson) && attemptIsExpired(latest)) {
+        const attempt = await markQuizAttemptTimedOut(supabase, latest);
+        return {
+          ok: false as const,
+          error: "Time has elapsed. Start a new attempt.",
+          status: 409,
+          attempt,
+          canRetry: true,
+        };
+      }
+
+      const score = Math.round((correct / quiz.questions.length) * 100);
+      const { data: attemptRow, error: attemptError } = await supabase
+        .from("quiz_attempts")
+        .update({
+          status: passed ? "passed" : "failed",
+          answers,
+          score,
+          submitted_at: now,
+        })
+        .eq("id", latest.id)
+        .eq("status", "in_progress")
+        .select()
+        .maybeSingle();
+      throwOnError(attemptError, "completeLesson attempt");
+      const attempt = attemptRow
+        ? mapQuizAttempt(attemptRow)
+        : await getLatestQuizAttempt(supabase, started.enrollment.id, lessonId);
+      if (!attempt || attempt.status !== "passed") {
+        return {
+          ok: false as const,
+          error: `Score: ${score}%. Start a new attempt to try again.`,
+          status: 400,
+          attempt,
+          canRetry: true,
+        };
+      }
     }
   }
 

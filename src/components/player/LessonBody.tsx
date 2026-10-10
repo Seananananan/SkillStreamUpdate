@@ -1,11 +1,12 @@
 import { ExternalLink, Play } from "lucide-react";
-import type { Lesson } from "@/lib/types";
+import type { Lesson, QuizAttempt } from "@/lib/types";
 import {
   contentTypeLabels,
   isHttpUrl,
   parseQuizConfig,
   youtubeEmbedSrc,
 } from "@/lib/lessonContent";
+import { QuizTimer } from "./QuizTimer";
 
 function paragraphs(text: string) {
   return text
@@ -71,40 +72,72 @@ function VideoFrame({ lesson }: { lesson: Lesson }) {
   );
 }
 
-function QuizFrame({ lesson }: { lesson: Lesson }) {
+function QuizFrame({
+  lesson,
+  courseId,
+  quizAttempt,
+}: {
+  lesson: Lesson;
+  courseId: string;
+  quizAttempt: QuizAttempt | null;
+}) {
   const quiz = parseQuizConfig(lesson.contentRef);
   const name = `quiz-${lesson.id}`;
+  const timed =
+    lesson.durationMinutes != null &&
+    lesson.durationMinutes > 0 &&
+    quizAttempt?.expiresAt != null;
+  const locked = quizAttempt != null && quizAttempt.status !== "in_progress";
 
   return (
     <div className="space-y-4">
+      {timed && quizAttempt ? (
+        <QuizTimer
+          key={quizAttempt.id}
+          attempt={quizAttempt}
+          courseId={courseId}
+          lessonId={lesson.id}
+          questionCount={quiz.questions.length}
+        />
+      ) : quizAttempt ? (
+        <p className="text-sm font-medium">Attempt {quizAttempt.attemptNumber}</p>
+      ) : null}
       <p className="text-sm leading-6 text-muted">
-        Choose an answer. A wrong choice leaves this lesson incomplete.
+        Answer every question. This lesson stays incomplete until every answer is right.
       </p>
-      {quiz.prompt ? (
-        <fieldset className="card px-4 py-4">
-          <legend className="text-sm font-medium">{quiz.prompt}</legend>
-          {quiz.choices.length > 0 ? (
-            quiz.choices.map((choice, index) => (
-              <label
-                key={`${lesson.id}-choice-${index}`}
-                className="mt-3 flex items-start gap-2 text-sm first:mt-3"
-              >
-                <input
-                  type="radio"
-                  name={name}
-                  value={index}
-                  className="mt-0.5"
-                />
-                {choice}
-              </label>
-            ))
-          ) : (
-            <p className="mt-3 text-sm text-muted">No choices were added.</p>
-          )}
-        </fieldset>
+      {quiz.questions.length > 0 ? (
+        quiz.questions.map((question, questionIndex) => (
+          <fieldset
+            key={`${lesson.id}-question-${questionIndex}`}
+            className="card px-4 py-4"
+          >
+            <legend className="text-sm font-medium">
+              {questionIndex + 1}. {question.prompt}
+            </legend>
+            {question.choices.length > 0 ? (
+              question.choices.map((choice, choiceIndex) => (
+                <label
+                  key={`${lesson.id}-question-${questionIndex}-choice-${choiceIndex}`}
+                  className="mt-3 flex items-start gap-2 text-sm first:mt-3"
+                >
+                  <input
+                    type="radio"
+                    name={`${name}-${questionIndex}`}
+                    value={choiceIndex}
+                    disabled={locked}
+                    className="mt-0.5"
+                  />
+                  {choice}
+                </label>
+              ))
+            ) : (
+              <p className="mt-3 text-sm text-muted">No choices were added.</p>
+            )}
+          </fieldset>
+        ))
       ) : (
         <p className="text-sm leading-6 text-muted">
-          No question is set for this quiz yet.
+          No questions are set for this quiz yet.
         </p>
       )}
     </div>
@@ -158,12 +191,27 @@ function ReadingFrame({ lesson }: { lesson: Lesson }) {
   );
 }
 
-export function LessonBody({ lesson }: { lesson: Lesson }) {
+export function LessonBody({
+  lesson,
+  courseId,
+  quizAttempt,
+}: {
+  lesson: Lesson;
+  courseId: string;
+  quizAttempt: QuizAttempt | null;
+}) {
   return (
     <article>
       <h2 className="sr-only">{contentTypeLabels[lesson.contentType]}</h2>
       {lesson.contentType === "video" ? <VideoFrame lesson={lesson} /> : null}
-      {lesson.contentType === "quiz" ? <QuizFrame lesson={lesson} /> : null}
+      {lesson.contentType === "quiz" ? (
+        <QuizFrame
+          key={quizAttempt?.id ?? lesson.id}
+          lesson={lesson}
+          courseId={courseId}
+          quizAttempt={quizAttempt}
+        />
+      ) : null}
       {lesson.contentType === "assignment" ? (
         <AssignmentFrame lesson={lesson} />
       ) : null}

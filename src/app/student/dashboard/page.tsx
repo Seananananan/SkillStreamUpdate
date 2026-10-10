@@ -57,6 +57,7 @@ export default async function StudentDashboardPage() {
           continueItem.enrollment,
           continueItem.lmsAccount,
         ),
+        completed: continueItem.enrollment.status === "completed",
         certificateId: continueItem.certificate?.id,
         nextLessonId: continueItem.summary.nextLesson?.id,
       })
@@ -160,6 +161,7 @@ export default async function StudentDashboardPage() {
                 const accessReady = canAccessLessons(enrollment, lmsAccount);
                 const href = studentCourseHref(course.id, {
                   accessReady,
+                  completed: enrollment.status === "completed",
                   certificateId: certificate?.id,
                   nextLessonId: summary.nextLesson?.id,
                 });

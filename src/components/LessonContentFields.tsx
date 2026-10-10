@@ -17,7 +17,16 @@ export function LessonContentFields({
   onChange: (patch: Partial<LessonDraft>) => void;
 }) {
   const contentId = `${idPrefix}-content`;
-  const quizPromptId = `${idPrefix}-prompt`;
+
+  function patchQuestion(
+    questionIndex: number,
+    patch: Partial<LessonDraft["quizQuestions"][number]>,
+  ) {
+    const questions = values.quizQuestions.map((question, index) =>
+      index === questionIndex ? { ...question, ...patch } : question,
+    );
+    onChange({ quizQuestions: questions });
+  }
 
   return (
     <div className="space-y-3">
@@ -58,7 +67,7 @@ export function LessonContentFields({
         </div>
         <div>
           <label className="label" htmlFor={`${idPrefix}-duration`}>
-            Minutes
+            {values.contentType === "quiz" ? "Timer (minutes)" : "Minutes"}
           </label>
           <input
             id={`${idPrefix}-duration`}
@@ -76,84 +85,109 @@ export function LessonContentFields({
 
       {values.contentType === "quiz" ? (
         <fieldset className="space-y-3">
-          <legend className="label">{contentFieldLabel("quiz")}</legend>
+          <legend className="label">Questions</legend>
           <p className="hint">{contentFieldHint("quiz")}</p>
-          <label className="sr-only" htmlFor={quizPromptId}>
-            Question
-          </label>
-          <textarea
-            id={quizPromptId}
-            value={values.quizPrompt}
-            onChange={(event) => onChange({ quizPrompt: event.target.value })}
-            rows={3}
-            className="field resize-y"
-            placeholder="What is the main job of HTML?"
-          />
-          <div>
-            <p className="label">Choices</p>
-            <p className="hint mt-0.5">Mark the correct choice. A wrong answer does not complete the lesson.</p>
-            <ul className="mt-2 space-y-2">
-              {values.quizChoices.map((choice, index) => (
-                <li key={`${idPrefix}-choice-${index}`} className="flex gap-2">
-                  <input
-                    type="radio"
-                    name={`${idPrefix}-correct`}
-                    className="mt-3"
-                    checked={values.quizCorrectIndex === index}
-                    onChange={() => onChange({ quizCorrectIndex: index })}
-                    aria-label={`Mark choice ${index + 1} as correct`}
-                  />
-                  <label className="sr-only" htmlFor={`${idPrefix}-choice-${index}`}>
-                    Choice {index + 1}
-                  </label>
-                  <input
-                    id={`${idPrefix}-choice-${index}`}
-                    value={choice}
-                    onChange={(event) => {
-                      const next = [...values.quizChoices];
-                      next[index] = event.target.value;
-                      onChange({ quizChoices: next });
-                    }}
-                    className="field flex-1"
-                    placeholder={`Choice ${index + 1}`}
-                  />
-                  {values.quizChoices.length > 2 ? (
-                    <button
-                      type="button"
-                      className="btn-icon"
-                      onClick={() => {
-                        const next = values.quizChoices.filter(
-                          (_, choiceIndex) => choiceIndex !== index,
-                        );
-                        const correctIndex =
-                          values.quizCorrectIndex === index
-                            ? 0
-                            : values.quizCorrectIndex > index
-                              ? values.quizCorrectIndex - 1
-                              : values.quizCorrectIndex;
-                        onChange({ quizChoices: next, quizCorrectIndex: correctIndex });
-                      }}
-                      aria-label={`Remove choice ${index + 1}`}
-                    >
-                      <X aria-hidden="true" size={16} />
-                    </button>
-                  ) : null}
-                </li>
-              ))}
-            </ul>
-            {values.quizChoices.length < 4 ? (
-              <button
-                type="button"
-                className="btn btn-quiet mt-2"
-                onClick={() =>
-                  onChange({ quizChoices: [...values.quizChoices, ""] })
-                }
+          {values.quizQuestions.map((question, questionIndex) => (
+            <div
+              key={`${idPrefix}-question-${questionIndex}`}
+              className="rounded-lg border border-line p-4"
+            >
+              <label
+                className="label"
+                htmlFor={`${idPrefix}-prompt-${questionIndex}`}
               >
-                <Plus aria-hidden="true" size={16} />
-                Add choice
-              </button>
-            ) : null}
-          </div>
+                Question {questionIndex + 1}
+              </label>
+              <textarea
+                id={`${idPrefix}-prompt-${questionIndex}`}
+                value={question.prompt}
+                onChange={(event) =>
+                  patchQuestion(questionIndex, { prompt: event.target.value })
+                }
+                rows={2}
+                className="field mt-1.5 resize-y"
+                placeholder="What is the main job of HTML?"
+              />
+              <p className="label mt-3">Choices</p>
+              <p className="hint mt-0.5">Mark the correct choice.</p>
+              <ul className="mt-2 space-y-2">
+                {question.choices.map((choice, choiceIndex) => (
+                  <li
+                    key={`${idPrefix}-question-${questionIndex}-choice-${choiceIndex}`}
+                    className="flex gap-2"
+                  >
+                    <input
+                      type="radio"
+                      name={`${idPrefix}-correct-${questionIndex}`}
+                      className="mt-3"
+                      checked={question.correctIndex === choiceIndex}
+                      onChange={() =>
+                        patchQuestion(questionIndex, {
+                          correctIndex: choiceIndex,
+                        })
+                      }
+                      aria-label={`Mark question ${questionIndex + 1}, choice ${choiceIndex + 1} as correct`}
+                    />
+                    <label
+                      className="sr-only"
+                      htmlFor={`${idPrefix}-question-${questionIndex}-choice-${choiceIndex}`}
+                    >
+                      Choice {choiceIndex + 1}
+                    </label>
+                    <input
+                      id={`${idPrefix}-question-${questionIndex}-choice-${choiceIndex}`}
+                      value={choice}
+                      onChange={(event) => {
+                        const choices = [...question.choices];
+                        choices[choiceIndex] = event.target.value;
+                        patchQuestion(questionIndex, { choices });
+                      }}
+                      className="field flex-1"
+                      placeholder={`Choice ${choiceIndex + 1}`}
+                    />
+                    {question.choices.length > 2 ? (
+                      <button
+                        type="button"
+                        className="btn-icon"
+                        onClick={() => {
+                          const choices = question.choices.filter(
+                            (_, index) => index !== choiceIndex,
+                          );
+                          const correctIndex =
+                            question.correctIndex === choiceIndex
+                              ? 0
+                              : question.correctIndex > choiceIndex
+                                ? question.correctIndex - 1
+                                : question.correctIndex;
+                          patchQuestion(questionIndex, {
+                            choices,
+                            correctIndex,
+                          });
+                        }}
+                        aria-label={`Remove question ${questionIndex + 1}, choice ${choiceIndex + 1}`}
+                      >
+                        <X aria-hidden="true" size={16} />
+                      </button>
+                    ) : null}
+                  </li>
+                ))}
+              </ul>
+              {question.choices.length < 4 ? (
+                <button
+                  type="button"
+                  className="btn btn-quiet mt-2"
+                  onClick={() =>
+                    patchQuestion(questionIndex, {
+                      choices: [...question.choices, ""],
+                    })
+                  }
+                >
+                  <Plus aria-hidden="true" size={16} />
+                  Add choice
+                </button>
+              ) : null}
+            </div>
+          ))}
         </fieldset>
       ) : (
         <div>

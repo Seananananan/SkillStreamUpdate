@@ -66,8 +66,8 @@ export const confirmationCopy: Record<
     detail: "Your progress is saved.",
   },
   certified: {
-    title: "Certificate issued",
-    detail: "Share the reference number. Anyone can verify it without signing in.",
+    title: "Course complete",
+    detail: "Your results are below. Open the certificate when you want to share it.",
   },
   "course-created": {
     title: "Course created",

@@ -53,6 +53,7 @@ export default async function StudentLearningPage() {
               const accessReady = canAccessLessons(enrollment, lmsAccount);
               const href = studentCourseHref(course.id, {
                 accessReady,
+                completed: enrollment.status === "completed",
                 certificateId: certificate?.id,
                 nextLessonId: summary.nextLesson?.id,
               });

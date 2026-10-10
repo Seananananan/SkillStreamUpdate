@@ -17,6 +17,8 @@ export type LmsSyncStatus = "pending" | "provisioned" | "failed";
 
 export type LessonProgressStatus = "not_started" | "in_progress" | "completed";
 
+export type QuizAttemptStatus = "in_progress" | "passed" | "failed" | "timed_out";
+
 export type CertificateVerificationStatus = "valid" | "revoked";
 
 export type IntegrationEventType =
@@ -109,6 +111,21 @@ export interface LessonProgress {
   updatedAt: string;
 }
 
+export interface QuizAttempt {
+  id: string;
+  enrollmentId: string;
+  lessonId: string;
+  attemptNumber: number;
+  status: QuizAttemptStatus;
+  answers: Array<number | null>;
+  score: number | null;
+  startedAt: string;
+  expiresAt: string | null;
+  submittedAt: string | null;
+  createdAt: string;
+  updatedAt: string;
+}
+
 export interface Certificate {
   id: string;
   enrollmentId: string;
@@ -166,6 +183,7 @@ export interface DataStore {
   enrollments: Enrollment[];
   lmsAccounts: LmsAccount[];
   lessonProgress: LessonProgress[];
+  quizAttempts: QuizAttempt[];
   certificates: Certificate[];
   integrationEvents: IntegrationEvent[];
   aiConversations: AiConversation[];
