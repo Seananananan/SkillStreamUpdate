@@ -69,6 +69,7 @@ export function AccountForm({
 
   function editEmailAndRetry() {
     setWaitingForConfirmation(false);
+    setConfirmedInOtherTab(false);
     setError("");
     setNotice("Update the email, then create the account again.");
     window.setTimeout(() => {
@@ -87,6 +88,8 @@ export function AccountForm({
       try {
         const response = await fetch("/api/auth/complete-signup", {
           method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: email.trim().toLowerCase() }),
         });
         const data = (await response.json()) as {
           role?: UserRole;
@@ -105,11 +108,11 @@ export function AccountForm({
 
     const interval = window.setInterval(() => {
       void checkConfirmation();
-    }, 2000);
+    }, 15000);
     void checkConfirmation();
 
     return () => window.clearInterval(interval);
-  }, [router, waitingForConfirmation]);
+  }, [email, waitingForConfirmation]);
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault();

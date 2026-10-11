@@ -72,12 +72,21 @@ export async function POST(request: Request) {
       { status: 500 },
     );
   }
+  if (existingRole === "pending") {
+    return NextResponse.json({ confirmationRequired: true });
+  }
+
   const taken = takenEmailMessage(
     typeof existingRole === "string" ? existingRole : null,
     body.role,
   );
   if (taken) {
     return NextResponse.json({ error: taken }, { status: 409 });
+  }
+
+  const { data: currentSession } = await supabase.auth.getSession();
+  if (currentSession.session) {
+    await supabase.auth.signOut();
   }
 
   const { data: signedUp, error: signUpError } = await supabase.auth.signUp({
@@ -103,13 +112,15 @@ export async function POST(request: Request) {
   }
 
   if (signedUp.user?.identities?.length === 0) {
+    if (signedUp.session) await supabase.auth.signOut();
     return NextResponse.json(
       { error: "This email is already used. Sign in instead." },
       { status: 409 },
     );
   }
 
-  if (!signedUp.session) {
+  if (!signedUp.session || !signedUp.user?.email_confirmed_at) {
+    if (signedUp.session) await supabase.auth.signOut();
     return NextResponse.json({ confirmationRequired: true });
   }
 

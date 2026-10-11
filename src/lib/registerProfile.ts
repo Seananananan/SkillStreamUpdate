@@ -18,6 +18,9 @@ export async function ensureAcademyProfile(
 ): Promise<{ user: User } | { error: string }> {
   const authUser = (await supabase.auth.getUser()).data.user;
   if (!authUser) return { error: "Sign in again to finish this account." };
+  if (!authUser.email_confirmed_at) {
+    return { error: "Confirm your email before continuing." };
+  }
 
   const existing = await getUserById(authUser.id);
   if (existing) return { user: existing };

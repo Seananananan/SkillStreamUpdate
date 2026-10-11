@@ -35,8 +35,18 @@ export function supabaseAuthMessage(error: unknown): string {
   if (text.includes("email not confirmed") || text.includes("email_not_confirmed")) {
     return "Open the confirmation email first, then sign in with the same password.";
   }
-  if (text.includes("too many") || text.includes("rate")) {
-    return "Too many attempts. Try again in a few minutes.";
+  if (
+    text.includes("over_email_send_rate_limit") ||
+    text.includes("email rate limit")
+  ) {
+    return "Confirmation emails are paused for this hour. The sign-in limit is separate from the built-in email limit, so wait for that hour to pass before creating another address.";
+  }
+  if (
+    text.includes("over_request_rate_limit") ||
+    text.includes("too many requests") ||
+    text.includes("too many attempts")
+  ) {
+    return "Too many sign-in attempts from this server. Wait a few minutes, then try again.";
   }
   if (message) return message;
   return "Sign-in is not available right now.";

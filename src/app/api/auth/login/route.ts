@@ -35,6 +35,14 @@ export async function POST(request: Request) {
     );
   }
 
+  if (!data.user.email_confirmed_at) {
+    await supabase.auth.signOut();
+    return NextResponse.json(
+      { error: "Open the confirmation email first, then sign in with the same password." },
+      { status: 401 },
+    );
+  }
+
   let user;
   try {
     user = await getUserById(data.user.id);
