@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { PublicShell } from "@/components/landing/PublicShell";
 import { ConfirmedBanner } from "@/components/feedback/ConfirmedBanner";
 import {
@@ -60,10 +60,22 @@ export function AccountForm({
   const [notice, setNotice] = useState("");
   const [waitingForConfirmation, setWaitingForConfirmation] = useState(false);
   const [confirmedInOtherTab, setConfirmedInOtherTab] = useState(false);
+  const emailInputRef = useRef<HTMLInputElement>(null);
 
   const label = roleLabels[role];
   const demo = demoAccounts[role];
   const signingUp = allowSignup && mode === "sign-up";
+  const formLocked = waitingForConfirmation || confirmedInOtherTab;
+
+  function editEmailAndRetry() {
+    setWaitingForConfirmation(false);
+    setError("");
+    setNotice("Update the email, then create the account again.");
+    window.setTimeout(() => {
+      emailInputRef.current?.focus();
+      emailInputRef.current?.select();
+    }, 0);
+  }
 
   useEffect(() => {
     if (!waitingForConfirmation) return;
@@ -153,7 +165,7 @@ export function AccountForm({
         if (data.confirmationRequired || (response.ok && !data.role)) {
           setWaitingForConfirmation(true);
           setNotice(
-            "Check your email and confirm your address. Keep this page open—it will update automatically and take you to your dashboard.",
+            `A confirmation link was sent to ${trimmedEmail}. Open that inbox and confirm your address. This page updates when the link is opened.`,
           );
           return;
         }
@@ -215,8 +227,9 @@ export function AccountForm({
                     id="first-name"
                     value={firstName}
                     onChange={(event) => setFirstName(event.target.value)}
-                    className="field mt-1.5"
+                    className="field mt-1.5 disabled:opacity-60"
                     autoComplete="given-name"
+                    disabled={formLocked}
                     required
                   />
                 </div>
@@ -228,8 +241,9 @@ export function AccountForm({
                     id="last-name"
                     value={lastName}
                     onChange={(event) => setLastName(event.target.value)}
-                    className="field mt-1.5"
+                    className="field mt-1.5 disabled:opacity-60"
                     autoComplete="family-name"
+                    disabled={formLocked}
                     required
                   />
                 </div>
@@ -241,12 +255,14 @@ export function AccountForm({
                 Email
               </label>
               <input
+                ref={emailInputRef}
                 id="email"
                 type="email"
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
-                className="field mt-1.5"
+                className="field mt-1.5 disabled:opacity-60"
                 autoComplete="email"
+                disabled={formLocked}
                 required
               />
             </div>
@@ -279,9 +295,10 @@ export function AccountForm({
                 type={showPassword ? "text" : "password"}
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
-                className="field mt-1.5"
+                className="field mt-1.5 disabled:opacity-60"
                 autoComplete={signingUp ? "new-password" : "current-password"}
                 minLength={signingUp ? 8 : undefined}
+                disabled={formLocked}
                 required
               />
               {signingUp ? (
@@ -305,9 +322,10 @@ export function AccountForm({
                   type={showPassword ? "text" : "password"}
                   value={confirmPassword}
                   onChange={(event) => setConfirmPassword(event.target.value)}
-                  className="field mt-1.5"
+                  className="field mt-1.5 disabled:opacity-60"
                   autoComplete="new-password"
                   minLength={8}
+                  disabled={formLocked}
                   required
                 />
               </div>
@@ -337,9 +355,7 @@ export function AccountForm({
 
             <button
               type="submit"
-              disabled={
-                confirm.busy || waitingForConfirmation || confirmedInOtherTab
-              }
+              disabled={confirm.busy || formLocked}
               className="btn btn-primary w-full"
             >
               {confirmedInOtherTab
@@ -354,6 +370,16 @@ export function AccountForm({
                   ? "Create account"
                   : "Sign in"}
             </button>
+
+            {waitingForConfirmation ? (
+              <button
+                type="button"
+                className="w-full text-sm font-medium text-brand hover:text-brand-strong"
+                onClick={editEmailAndRetry}
+              >
+                Wrong email? Edit it and try again
+              </button>
+            ) : null}
 
             {allowSignup ? (
               <button
