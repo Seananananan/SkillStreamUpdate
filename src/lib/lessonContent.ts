@@ -4,14 +4,12 @@ export const lessonContentTypes = [
   "text",
   "video",
   "quiz",
-  "assignment",
 ] as const satisfies readonly LessonContentType[];
 
 export const contentTypeLabels: Record<LessonContentType, string> = {
   video: "Video",
   text: "Reading",
   quiz: "Quiz",
-  assignment: "Assignment",
 };
 
 export type LessonDraft = {
@@ -62,12 +60,7 @@ export function emptyLessonDraft(): LessonDraft {
 export function isLessonContentType(
   value: unknown,
 ): value is LessonContentType {
-  return (
-    value === "text" ||
-    value === "video" ||
-    value === "quiz" ||
-    value === "assignment"
-  );
+  return value === "text" || value === "video" || value === "quiz";
 }
 
 export function parseDurationMinutes(
@@ -304,8 +297,6 @@ export function contentFieldLabel(contentType: LessonContentType): string {
       return "Video URL";
     case "quiz":
       return "Question";
-    case "assignment":
-      return "Brief";
     default:
       return "Reading";
   }
@@ -317,8 +308,6 @@ export function contentFieldHint(contentType: LessonContentType): string {
       return "A public http(s) link. This build does not host video files.";
     case "quiz":
       return "Add 3 questions and mark the correct choice for each. A wrong answer does not complete the lesson.";
-    case "assignment":
-      return "File upload is not in this build. Students read the brief, then mark it complete.";
     default:
       return "Shown as the lesson body. Separate paragraphs with a blank line.";
   }

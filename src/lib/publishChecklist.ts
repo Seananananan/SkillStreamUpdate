@@ -46,8 +46,6 @@ function missingContentPhrase(
       return "no video URL";
     case "quiz":
       return "no question";
-    case "assignment":
-      return "no brief";
     default:
       return "no reading";
   }

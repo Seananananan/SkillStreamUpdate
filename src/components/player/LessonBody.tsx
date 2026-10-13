@@ -144,33 +144,6 @@ function QuizFrame({
   );
 }
 
-function AssignmentFrame({ lesson }: { lesson: Lesson }) {
-  const brief = lesson.contentRef.trim();
-
-  return (
-    <div className="space-y-4">
-      <p className="text-sm leading-6 text-muted">
-        File upload is not in this build. Submitting marks the work complete
-        with a score of 100.
-      </p>
-      <div className="card px-4 py-4">
-        <p className="text-sm font-medium">Brief</p>
-        {brief ? (
-          <div className="mt-1.5 space-y-3 text-sm leading-6 text-muted">
-            {paragraphs(brief).map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
-        ) : (
-          <p className="mt-1.5 text-sm leading-6 text-muted">
-            No brief is set for this assignment yet.
-          </p>
-        )}
-      </div>
-    </div>
-  );
-}
-
 function ReadingFrame({ lesson }: { lesson: Lesson }) {
   const body = paragraphs(lesson.contentRef);
 
@@ -211,9 +184,6 @@ export function LessonBody({
           courseId={courseId}
           quizAttempt={quizAttempt}
         />
-      ) : null}
-      {lesson.contentType === "assignment" ? (
-        <AssignmentFrame lesson={lesson} />
       ) : null}
       {lesson.contentType === "text" ? <ReadingFrame lesson={lesson} /> : null}
     </article>

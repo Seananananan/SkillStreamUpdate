@@ -93,7 +93,7 @@ the reading surface quiet. All text pairs clear 4.5:1 on both `--canvas` and
 ### Finish course authoring
 
 - Edit, delete, and up/down reorder for course details, modules, and lessons are live, with confirm-before delete and Saved / Deleted / Order saved notices. Course delete is blocked when enrollments exist.
-- Lesson type, reading/video URL, duration, and quiz prompt/choices are live. A quiz stores the correct choice. A wrong answer does not complete the lesson. A right answer records 100. Assignments still record 100 on submit.
+- Lesson type, reading/video URL, duration, and quiz prompt/choices are live. A quiz stores the correct choice. A wrong answer does not complete the lesson. A right answer records 100.
 - Completeness checklist is live on the course page. Submit stays disabled until required items pass (title, ≥1 module, every module has a lesson, every lesson has a title and type-appropriate content). Duration is optional. The API rejects an incomplete submit and rejects an instructor publish. A published course that later fails the checklist stays listed with a warning until the instructor returns it to draft or archives it.
 - Archive is live: confirm, leave the catalog, keep enrollments/progress/certificates. Restore returns the course to draft. Delete stays blocked when enrollments exist.
 

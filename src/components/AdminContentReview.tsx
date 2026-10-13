@@ -161,12 +161,6 @@ function LessonPreview({
         {lesson.contentType === "text" ? (
           <ReadingPreview text={lesson.contentRef} empty="This reading has no body yet." />
         ) : null}
-        {lesson.contentType === "assignment" ? (
-          <ReadingPreview
-            text={lesson.contentRef}
-            empty="No brief is set for this assignment yet."
-          />
-        ) : null}
         {lesson.contentType === "quiz" ? <QuizPreview lesson={lesson} /> : null}
       </div>
     </article>

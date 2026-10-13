@@ -1236,8 +1236,7 @@ export async function completeLesson(
     .maybeSingle();
   throwOnError(lessonError, "completeLesson");
   const mappedLesson = lesson ? mapLesson(lesson) : undefined;
-  const needsScore =
-    mappedLesson?.contentType === "quiz" || mappedLesson?.contentType === "assignment";
+  const needsScore = mappedLesson?.contentType === "quiz";
 
   if (mappedLesson?.contentType === "quiz") {
     const quiz = parseQuizConfig(mappedLesson.contentRef);

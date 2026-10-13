@@ -88,7 +88,7 @@ export function mapLesson(row: {
   module_id: string;
   title: string;
   sequence_order: number;
-  content_type: Lesson["contentType"];
+  content_type: Lesson["contentType"] | "assignment";
   content_ref: string;
   duration_minutes: number | null;
   created_at: string;
@@ -98,7 +98,8 @@ export function mapLesson(row: {
     moduleId: row.module_id,
     title: row.title,
     sequenceOrder: row.sequence_order,
-    contentType: row.content_type,
+    contentType:
+      row.content_type === "assignment" ? "text" : row.content_type,
     contentRef: row.content_ref,
     durationMinutes: row.duration_minutes,
     createdAt: iso(row.created_at),

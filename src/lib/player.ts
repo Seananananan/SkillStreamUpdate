@@ -18,8 +18,6 @@ export function completeActionLabel(contentType: LessonContentType) {
       return "Mark as watched";
     case "quiz":
       return "Submit quiz";
-    case "assignment":
-      return "Submit assignment";
     default:
       return "Mark as complete";
   }

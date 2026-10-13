@@ -4,7 +4,7 @@ export type CourseStatus = "draft" | "published" | "archived";
 
 export type CourseReviewStatus = "none" | "submitted" | "returned";
 
-export type LessonContentType = "video" | "text" | "quiz" | "assignment";
+export type LessonContentType = "video" | "text" | "quiz";
 
 export type EnrollmentStatus =
   | "pending"

@@ -35,7 +35,7 @@ V1 scope from the approved ERD: one academy, one instructor per course. The huma
 
 Working in this prototype: Supabase email/password sign-in with role stored in `app_metadata` and `public.users`, email password recovery, instructor course authoring and submit-for-review, admin approve-or-return, student catalog and enrollment, LMS account provisioned on enroll, lesson player with progress, quiz answers checked against the marked choice, enrollment completed when all lessons are done, certificate issued on completion with a downloadable PDF, public `/verify` by reference, a lesson chatbot, and a draft course created from a PDF.
 
-Not implemented and must not be presented as live: admin user management, system health, reassign, reporting, notifications, integration-event retries, and audit logs. A student question is answered by GPT-6 Luna from that course’s lesson text. If the lessons do not contain the answer, the reply says so and stops. If the key is missing or the call fails, the question stays saved and the reply stays empty. An assignment still records a score of 100 on submit.
+Not implemented and must not be presented as live: admin user management, system health, reassign, reporting, notifications, integration-event retries, and audit logs. A student question is answered by GPT-6 Luna from that course’s lesson text. If the lessons do not contain the answer, the reply says so and stops. If the key is missing or the call fails, the question stays saved and the reply stays empty.
 
 Open tension: the judged path must not fake completion. A wrong quiz answer stays incomplete. Record planned work as planned. Do not invent an assistant answer.
 

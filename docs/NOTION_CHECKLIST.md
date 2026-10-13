@@ -109,8 +109,7 @@ Keep this path real. A student must be able to enroll, finish lessons, and verif
 - [x] Completing the last lesson sets enrollment to completed
 - [x] Confirm before marking a lesson complete; success banner after
 - [x] Quiz grading. The instructor marks the correct choice. A wrong choice does not complete the lesson. A right choice records 100.
-- [ ] Assignment scoring. Submitting an assignment still records 100. There is no file upload.
-- [x] Video, quiz, and assignment types in authoring
+- [x] Reading, video, and quiz types in authoring
 - [x] Lesson duration and content URL/body in authoring
 
 ## 1.3 Certificates

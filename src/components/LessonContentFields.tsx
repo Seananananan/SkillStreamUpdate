@@ -211,11 +211,7 @@ export function LessonContentFields({
               onChange={(event) => onChange({ contentRef: event.target.value })}
               rows={5}
               className="field mt-1.5 resize-y"
-              placeholder={
-                values.contentType === "assignment"
-                  ? "Rewrite this outline as a short page with one heading and two paragraphs."
-                  : "The web is a request-and-response system."
-              }
+              placeholder="The web is a request-and-response system."
             />
           )}
         </div>
