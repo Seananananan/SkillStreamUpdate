@@ -8,14 +8,18 @@ import { ConfirmDialog, useConfirmDialog } from "@/components/feedback/ConfirmDi
 export function AskQuestionForm({
   courseId,
   courseTitle,
+  stayOnPage = false,
 }: {
   courseId: string;
   courseTitle: string;
+  stayOnPage?: boolean;
 }) {
   const router = useRouter();
   const confirm = useConfirmDialog();
   const [content, setContent] = useState("");
   const [error, setError] = useState("");
+  const [reply, setReply] = useState<string | null>(null);
+  const [sent, setSent] = useState(false);
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
@@ -35,12 +39,21 @@ export function AskQuestionForm({
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ content }),
         });
-        const data = (await response.json()) as { error?: string };
+        const data = (await response.json()) as {
+          error?: string;
+          reply?: string | null;
+        };
         if (!response.ok) {
           setError(data.error ?? "The question could not be sent.");
           return;
         }
         setContent("");
+        if (stayOnPage) {
+          setReply(data.reply ?? null);
+          setSent(true);
+          router.refresh();
+          return;
+        }
         router.push(
           withConfirmed(`/student/learning/${courseId}`, "question-sent"),
         );
@@ -80,6 +93,14 @@ export function AskQuestionForm({
         >
           {confirm.busy ? "Sending…" : "Send question"}
         </button>
+        {sent ? (
+          <div className="rounded-lg border border-line bg-subtle px-3 py-3">
+            <p className="text-sm font-medium">Question saved</p>
+            <p className="mt-2 text-sm text-muted">
+              {reply ?? "The assistant did not reply. Your question is saved."}
+            </p>
+          </div>
+        ) : null}
       </form>
       <ConfirmDialog
         open={confirm.open}

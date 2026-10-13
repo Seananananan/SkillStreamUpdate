@@ -5,6 +5,7 @@ import { AppShell } from "@/components/AppShell";
 import { AccessNotice } from "@/components/AccessNotice";
 import { CompleteLessonButton } from "@/components/player/CompleteLessonButton";
 import { CourseOutline } from "@/components/player/CourseOutline";
+import { AskQuestionForm } from "@/components/player/AskQuestionForm";
 import { LessonBody } from "@/components/player/LessonBody";
 import { requireRole } from "@/lib/auth";
 import { canAccessLessons, courseAccessState } from "@/lib/access";
@@ -91,6 +92,7 @@ export default async function LessonPlayerPage({ params }: PageProps) {
           locked={!accessReady}
         />
 
+        <div className="space-y-6">
         <section className="card px-5 py-5 sm:px-6 sm:py-6">
           <p className="eyebrow">
             {contentTypeLabels[lesson.contentType]}
@@ -134,6 +136,25 @@ export default async function LessonPlayerPage({ params }: PageProps) {
             </>
           )}
         </section>
+        {accessReady ? (
+          <section aria-labelledby="question-title" className="card px-5 py-5">
+            <h2 id="question-title" className="section-title">
+              Ask about this course
+            </h2>
+            <p className="mt-1 text-sm text-muted">
+              The assistant answers from this course’s lesson text. Earlier
+              questions stay on the course outline.
+            </p>
+            <div className="mt-4">
+              <AskQuestionForm
+                courseId={courseId}
+                courseTitle={state.course.title}
+                stayOnPage
+              />
+            </div>
+          </section>
+        ) : null}
+        </div>
       </div>
     </AppShell>
   );

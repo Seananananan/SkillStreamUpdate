@@ -1646,7 +1646,7 @@ export async function askCourseQuestion(studentId: string, courseId: string, con
     });
   }
 
-  return { ok: true as const, conversation, message };
+  return { ok: true as const, conversation, message, reply };
 }
 
 export async function listQuestionsForEnrollment(enrollmentId: string) {
